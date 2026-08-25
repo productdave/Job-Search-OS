@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="assets/readme-cover.png" width="100%" alt="Job Search OS improves each application through a continuous search, tailor, track, and learn loop" />
+
 <br/>
 
 <img src="https://img.shields.io/badge/Claude-Skills-0f7b5f?style=for-the-badge&logo=anthropic&logoColor=white" alt="Claude Skills"/>
