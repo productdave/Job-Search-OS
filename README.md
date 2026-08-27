@@ -53,12 +53,14 @@ The setup command refuses to overwrite a non-empty folder unless `--force` is pr
 | [`.codex-plugin/plugin.json`](./.codex-plugin/plugin.json) | Lets a compatible agent install the repository as one plugin |
 | [Live onboarding](https://productdave.github.io/Job-Search-OS/) ([source](./index.html)) | Nontechnical tour and guided first message |
 | [`skills/`](./skills/) | Generated plugin copies of the three canonical skill folders |
-| [`job-search-os.skill`](./job-search-os.skill) | Finds, verifies, scores, and tracks roles; learns from outcomes |
-| [`resume-tailor.skill`](./resume-tailor.skill) | Tailors resumes from verified achievements without inventing facts |
-| [`job-search-maintenance.skill`](./job-search-maintenance.skill) | Audits dependencies, archives obsolete artifacts, and compacts oversized context |
+| [Download `job-search-os.skill`](https://raw.githubusercontent.com/productdave/Job-Search-OS/main/job-search-os.skill) · [read the instructions](./job-search-os/SKILL.md) | Finds, verifies, scores, and tracks roles; learns from outcomes |
+| [Download `resume-tailor.skill`](https://raw.githubusercontent.com/productdave/Job-Search-OS/main/resume-tailor.skill) · [read the instructions](./resume-tailor/SKILL.md) | Tailors resumes from verified achievements without inventing facts |
+| [Download `job-search-maintenance.skill`](https://raw.githubusercontent.com/productdave/Job-Search-OS/main/job-search-maintenance.skill) · [read the instructions](./job-search-maintenance/SKILL.md) | Audits dependencies, archives obsolete artifacts, and compacts oversized context |
 | [`job-search-os/assets/starter-kit/`](./job-search-os/assets/starter-kit/) | Canonical blank workspace templates |
 | [`examples/fictional-workspace/`](./examples/fictional-workspace/) | Clearly labelled fictional data showing completed files |
 | [Architecture walkthrough](https://productdave.github.io/Job-Search-OS/How%20I%20Built%20My%20Job%20Search%20OS.html) | Generic architecture, operating loop, and maintenance model |
+
+Files ending in `.skill` are ZIP-based installer packages. GitHub cannot preview their contents and may show an empty-looking file page. Use the **Download** link for installation or **read the instructions** to inspect the human-readable source.
 
 ## One source of truth
 
@@ -140,7 +142,15 @@ Start my Job Search OS onboarding.
 
 Web browsing, scheduling, Notion, spreadsheet, DOCX, and PDF features depend on the tools supplied by the host agent. The Markdown workflow works without those optional integrations.
 
-The canonical skill sources are the three top-level skill folders. Before publishing a plugin update, run `node scripts/sync-onboarding.mjs` and `node scripts/sync-plugin-skills.mjs`. Do not edit the generated `skills/` copies directly.
+The canonical skill sources are the three top-level skill folders. Do not edit the generated `skills/` copies or `.skill` packages directly.
+
+Before publishing an update, run:
+
+```bash
+node scripts/build-release.mjs
+```
+
+That one command synchronizes the onboarding and plugin copies, rebuilds all three `.skill` installers, tests every archive, compares generated files with their canonical sources, creates a sample workspace, verifies overwrite protection, and runs the maintenance audit. To check an existing release without rebuilding it, run `node scripts/audit-release.mjs`.
 
 ## Change the process in one place
 
@@ -151,7 +161,7 @@ The canonical skill sources are the three top-level skill folders. Before publis
 - Treat scheduler prompts as timing and routing only. They should not contain a second copy of the workflow.
 - Treat the public GitHub repository as the reusable template. Change it only when the improvement should apply to every future installation.
 
-When changing this public toolkit, edit `index.html` and the three canonical top-level skill folders. Then run the two sync scripts above, rebuild the three `.skill` archives from those canonical folders, and validate source-to-package parity before publishing. The generated `skills/` directory and `.skill` files are outputs, not independent instruction sources.
+When changing this public toolkit, edit `index.html` and the three canonical top-level skill folders, then run `node scripts/build-release.mjs`. The generated `skills/` directory and `.skill` files are outputs, not independent instruction sources.
 
 ## Safety boundaries
 
@@ -173,7 +183,7 @@ The templates default to these hard stops:
 ├── index.html                         # interactive onboarding
 ├── INSTALL.md                         # install and first-run contract
 ├── skills/                            # generated plugin skill copies
-├── scripts/                           # onboarding and plugin sync tools
+├── scripts/                           # release build, audit, onboarding, and plugin sync tools
 ├── README.md                          # repository guide
 ├── PRIVACY.md                         # publishing and data-safety checklist
 ├── examples/fictional-workspace/      # fictional completed example

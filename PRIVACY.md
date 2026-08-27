@@ -20,6 +20,8 @@ The template repository may contain:
 - fictional names, employers, URLs, metrics, and outcomes;
 - generated `.skill` archives built from the generic source folders.
 
+Before publishing, run `node scripts/build-release.mjs`. It rebuilds the generated plugin copies and `.skill` archives, then verifies source/package parity and performs a sample private-workspace installation without publishing that sample.
+
 It should not contain:
 
 - real candidate contact details or public profile URLs;
