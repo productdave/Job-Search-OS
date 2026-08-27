@@ -2,6 +2,8 @@
 
 Job Search OS helps a file-capable AI agent find open roles, prepare truthful resume drafts, track progress, and learn from outcomes. The repository contains the whole toolkit. Codex can install it as a bundled plugin; other AI agents can run the same workflow after opening the downloaded folder.
 
+Before installing, open the [live guided onboarding](https://productdave.github.io/Job-Search-OS/) to see how the system works and what the setup will ask you for. This link opens the rendered website, including on mobile.
+
 ## 1. Use the right kind of AI app
 
 Set this up on the computer where the private job-search workspace should live. The AI app must be able to read, create, and update local files.

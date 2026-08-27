@@ -12,7 +12,9 @@ The system keeps the candidate profile, search rules, applications, outcomes, an
 
 ## Start here
 
-Open [the guided onboarding](./index.html) to see what the system does, how the parts work together, what the AI handles, and what remains under human control.
+Open the **[live guided onboarding](https://productdave.github.io/Job-Search-OS/)** to see the page as a website. It explains what the system does, how the parts work together, what the AI handles, and what remains under human control.
+
+> GitHub's repository view shows HTML source code. Use the live onboarding link above when viewing the guide on a phone or sharing it with someone else.
 
 Set this up on the computer where the private job-search files should live. Use an AI app that can read and update local files, such as Codex, Claude Cowork or Claude Code, Cursor, or Visual Studio Code with an AI coding agent. A chat-only window without file access cannot run the toolkit.
 
@@ -49,14 +51,14 @@ The setup command refuses to overwrite a non-empty folder unless `--force` is pr
 | Component | Purpose |
 |---|---|
 | [`.codex-plugin/plugin.json`](./.codex-plugin/plugin.json) | Lets a compatible agent install the repository as one plugin |
-| [`index.html`](./index.html) | Nontechnical tour and guided first message |
+| [Live onboarding](https://productdave.github.io/Job-Search-OS/) ([source](./index.html)) | Nontechnical tour and guided first message |
 | [`skills/`](./skills/) | Generated plugin copies of the three canonical skill folders |
 | [`job-search-os.skill`](./job-search-os.skill) | Finds, verifies, scores, and tracks roles; learns from outcomes |
 | [`resume-tailor.skill`](./resume-tailor.skill) | Tailors resumes from verified achievements without inventing facts |
 | [`job-search-maintenance.skill`](./job-search-maintenance.skill) | Audits dependencies, archives obsolete artifacts, and compacts oversized context |
 | [`job-search-os/assets/starter-kit/`](./job-search-os/assets/starter-kit/) | Canonical blank workspace templates |
 | [`examples/fictional-workspace/`](./examples/fictional-workspace/) | Clearly labelled fictional data showing completed files |
-| [Architecture walkthrough](./How%20I%20Built%20My%20Job%20Search%20OS.html) | Generic architecture, operating loop, and maintenance model |
+| [Architecture walkthrough](https://productdave.github.io/Job-Search-OS/How%20I%20Built%20My%20Job%20Search%20OS.html) | Generic architecture, operating loop, and maintenance model |
 
 ## One source of truth
 
@@ -167,6 +169,7 @@ The templates default to these hard stops:
 ```text
 .
 ├── .codex-plugin/plugin.json          # one-link plugin manifest
+├── .nojekyll                          # serve the static site unchanged on GitHub Pages
 ├── index.html                         # interactive onboarding
 ├── INSTALL.md                         # install and first-run contract
 ├── skills/                            # generated plugin skill copies
