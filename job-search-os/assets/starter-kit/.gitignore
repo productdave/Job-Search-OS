@@ -1,0 +1,6 @@
+# Keep the private workspace out of public source control by default.
+*.docx
+*.pdf
+*.png
+*.tmp
+tmp/

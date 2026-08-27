@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A generic walkthrough of the Job Search OS architecture and feedback loop.">
+  <title>How the Job Search OS Works</title>
+  <style>
+    :root { --ink:#18332d; --muted:#5d706a; --paper:#f7f4ed; --green:#176b55; --mint:#dcefe7; --line:#d8ded8; --coral:#e77d5b; }
+    * { box-sizing:border-box; }
+    body { margin:0; color:var(--ink); background:linear-gradient(140deg,#f9e7d9 0,transparent 28rem),var(--paper); font:16px/1.65 Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    a { color:#0f5744; }
+    .wrap { width:min(920px,calc(100% - 34px)); margin:auto; }
+    nav { display:flex; justify-content:space-between; align-items:center; padding:22px 0; }
+    nav a { text-decoration:none; font-weight:750; }
+    header { padding:76px 0 70px; }
+    .tag { display:inline-block; padding:6px 10px; border-radius:999px; background:var(--mint); color:#0f5744; font-size:13px; font-weight:800; text-transform:uppercase; letter-spacing:.04em; }
+    h1,h2 { font-family:Georgia,"Times New Roman",serif; font-weight:500; letter-spacing:-.035em; line-height:1.05; }
+    h1 { max-width:790px; margin:18px 0; font-size:clamp(48px,8vw,78px); }
+    h2 { margin:0 0 14px; font-size:clamp(32px,5vw,48px); }
+    header p,.lead { max-width:720px; color:var(--muted); font-size:19px; }
+    section { padding:64px 0; border-top:1px solid var(--line); }
+    .grid { display:grid; grid-template-columns:repeat(2,1fr); gap:18px; margin-top:28px; }
+    .card { padding:24px; border:1px solid var(--line); border-radius:18px; background:rgba(255,255,255,.72); }
+    .card h3 { margin-top:0; }
+    .card p { margin-bottom:0; color:var(--muted); }
+    .loop { display:grid; grid-template-columns:repeat(6,1fr); gap:8px; margin-top:28px; padding:18px; border-radius:18px; background:#18332d; color:white; }
+    .loop div { padding:14px 8px; border-radius:11px; background:rgba(255,255,255,.08); text-align:center; }
+    .loop b { display:block; color:#a7dec9; font-size:12px; }
+    .rule { margin:24px 0; padding:20px 22px; border-left:5px solid var(--coral); background:#fff8ed; }
+    table { width:100%; border-collapse:collapse; margin-top:24px; background:rgba(255,255,255,.7); }
+    th,td { padding:12px; border:1px solid var(--line); text-align:left; vertical-align:top; }
+    th { background:#eaf4ef; }
+    code { color:#0f5744; }
+    footer { padding:36px 0 50px; color:var(--muted); border-top:1px solid var(--line); }
+    @media(max-width:720px){.grid{grid-template-columns:1fr}.loop{grid-template-columns:repeat(2,1fr)}table{font-size:14px}}
+  </style>
+</head>
+<body>
+  <nav class="wrap"><strong>Job Search OS</strong><a href="index.html">Start onboarding →</a></nav>
+  <header class="wrap">
+    <span class="tag">Generic architecture</span>
+    <h1>How the Job Search OS works</h1>
+    <p>A practical blueprint for separating personal facts, search decisions, automation logic, resume production, and learning history so the system improves without becoming impossible to maintain.</p>
+  </header>
+
+  <main>
+    <section><div class="wrap">
+      <h2>The design principle</h2>
+      <p class="lead">The live Markdown workspace owns the workflow. Agents and schedulers read it; they do not keep separate copies of it.</p>
+      <div class="rule"><strong>Change process once.</strong> Preferences go in <code>search-config.md</code>, runtime thresholds in <code>run-config.md</code>, and durable steps in the relevant runbook. Scheduled prompts stay as thin pointers.</div>
+      <div class="grid">
+        <article class="card"><h3>Candidate layer</h3><p><code>profile.md</code> and <code>resume-style-guide.md</code> contain verified facts and presentation rules.</p></article>
+        <article class="card"><h3>Decision layer</h3><p><code>search-config.md</code>, <code>hypotheses.md</code>, and <code>search-patterns.md</code> explain what to pursue and why.</p></article>
+        <article class="card"><h3>Operations layer</h3><p><code>run-config.md</code> and the runbooks define thresholds, caps, integrations, read order, and hard stops.</p></article>
+        <article class="card"><h3>Evidence layer</h3><p>The role tracker, keyword ledger, and learning log preserve outcomes and make future decisions auditable.</p></article>
+      </div>
+    </div></section>
+
+    <section><div class="wrap">
+      <h2>The daily loop</h2>
+      <p class="lead">Verification comes before scoring. Scoring comes before resume work. Human action remains outside the automated run.</p>
+      <div class="loop">
+        <div><b>01</b>Learn</div><div><b>02</b>Search</div><div><b>03</b>Verify</div><div><b>04</b>Score</div><div><b>05</b>Track</div><div><b>06</b>Digest</div>
+      </div>
+      <table>
+        <thead><tr><th>Pass</th><th>What happens</th><th>Hard boundary</th></tr></thead>
+        <tbody>
+          <tr><td>Learning</td><td>Read human feedback and recent outcomes before searching.</td><td>One outcome does not become a confirmed rule.</td></tr>
+          <tr><td>Search</td><td>Query configured titles, companies, and sources.</td><td>Aggregators are discovery sources, not proof of recency.</td></tr>
+          <tr><td>Verification</td><td>Resolve the canonical employer or ATS page and confirm the full listing.</td><td>Unconfirmed roles are labelled, not padded into the digest.</td></tr>
+          <tr><td>Scoring</td><td>Explain fit and concerns against explicit criteria.</td><td>The default eligibility threshold is <code>&gt;= 8/10</code>.</td></tr>
+          <tr><td>Tracking</td><td>Deduplicate and update the configured tracker plus a portable mirror.</td><td>No application or outreach is sent.</td></tr>
+        </tbody>
+      </table>
+    </div></section>
+
+    <section><div class="wrap">
+      <h2>Resume production</h2>
+      <p class="lead">A separate resume pass reads only eligible, live roles. It selects and reframes verified achievements from <code>profile.md</code>, generates a draft, renders it, and leaves it marked for human review.</p>
+      <div class="grid">
+        <article class="card"><h3>Truth constraint</h3><p>No metric, employer, responsibility, title, date, or public URL can be invented.</p></article>
+        <article class="card"><h3>Idempotency</h3><p>A valid existing draft is skipped unless regeneration is explicitly requested.</p></article>
+        <article class="card"><h3>Visual QA</h3><p>Generated pages are rendered and checked for clipping, spacing, broken links, and formatting drift.</p></article>
+        <article class="card"><h3>Human gate</h3><p>Automated output remains a draft. Applying and sending outreach are separate human decisions.</p></article>
+      </div>
+    </div></section>
+
+    <section><div class="wrap">
+      <h2>Learning without context bloat</h2>
+      <p class="lead">The system keeps current rules small while preserving exact history behind indexes and archives.</p>
+      <table>
+        <thead><tr><th>Tier</th><th>Contents</th><th>Loading rule</th></tr></thead>
+        <tbody>
+          <tr><td>1 — enforced</td><td>Safety and QA constraints</td><td>Always</td></tr>
+          <tr><td>2 — active</td><td>Current rules, state, open hypotheses, and indexes</td><td>Every relevant run</td></tr>
+          <tr><td>3 — referenced</td><td>Detailed evidence modules</td><td>Only for the current task</td></tr>
+          <tr><td>4 — archive</td><td>Exact historical records</td><td>When investigating provenance</td></tr>
+        </tbody>
+      </table>
+      <div class="rule"><strong>Archive, do not erase.</strong> Compaction retains dates, IDs, metrics, counter-evidence, and links so every active rule can still be traced to its evidence.</div>
+    </div></section>
+  </main>
+
+  <footer><div class="wrap">This walkthrough contains generic workflow guidance and fictional examples only. <a href="index.html">Create a private workspace</a>.</div></footer>
+</body>
+</html>
