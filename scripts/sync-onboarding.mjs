@@ -25,5 +25,10 @@ for (const phrase of requiredPhrases) {
   }
 }
 
-fs.writeFileSync(destination, content, "utf8");
-console.log(`Synced ${path.relative(root, source)} to ${path.relative(root, destination)}`);
+const destinationContent = fs.existsSync(destination) ? fs.readFileSync(destination, "utf8") : null;
+if (destinationContent !== content) {
+  fs.writeFileSync(destination, content, "utf8");
+  console.log(`Synced ${path.relative(root, source)} to ${path.relative(root, destination)}`);
+} else {
+  console.log(`Already synced ${path.relative(root, destination)}`);
+}

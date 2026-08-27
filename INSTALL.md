@@ -43,6 +43,8 @@ Keep my personal job-search information in a separate private folder, not inside
 
 Codex can install the bundled plugin directly. Other clients may download or open the repository instead; direct plugin installation is not guaranteed outside Codex.
 
+The standalone files ending in `.skill` are packaged downloads, not readable web pages. GitHub cannot preview them and may show an empty-looking file. Use the repository README's **Download** link to install one, or its **read the instructions** link to inspect the corresponding `SKILL.md` source.
+
 ## 4. If direct installation is not supported
 
 1. Open the repository link in a browser.
