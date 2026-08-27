@@ -28,6 +28,7 @@ const tracked = [
   { path: "run-config.md", role: "mandatory", budget: 64 * KiB },
   { path: "learnings-log.md", role: "history", budget: 512 * KiB },
   { path: "interview-learnings.md", role: "selective", budget: 192 * KiB },
+  { path: "resume-tailoring-runbook.md", role: "selective", budget: 192 * KiB },
   { path: "weekly-review-runbook.md", role: "selective", budget: 192 * KiB },
   { path: "resume-qa.md", role: "selective", budget: 192 * KiB },
   { path: "resume-qa-runbook.md", role: "selective", budget: 192 * KiB },

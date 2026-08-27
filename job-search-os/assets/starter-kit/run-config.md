@@ -14,7 +14,9 @@ This file contains operational knobs. Candidate preferences belong in `search-co
 | Maximum sources per run | 20 |
 | Reverify active roles | Yes |
 | Primary tracker | {{TRACKER}} |
-| Markdown mirror | `roles-tracker.md` |
+| Tracker authority | Primary tracker is authoritative |
+| Markdown mirror | `roles-tracker.md` as a derived mirror when the primary tracker is external |
+| Automation order | Daily search -> resume tailoring -> resume QA |
 
 ## Eligibility thresholds
 
@@ -38,6 +40,14 @@ These are the canonical threshold values. Other files refer to them without copy
 | Resume tailoring | Separate run |
 | Resume QA | Separate run |
 | Weekly maintenance | Manual until tested |
+
+Each separate pass reads and writes the same primary tracker. The next pass starts only after the previous pass finishes. The mirror is refreshed from the primary tracker and must not receive independent edits.
+
+## Eligible resume statuses
+
+`Found` · `Shortlist` · `Outreach` · `Applied`
+
+Terminal or ineligible statuses include `Expired`, `Pass`, `ATS Rejected`, `Interview Rejected`, and `No Offer`.
 
 ## Duplicate keys
 

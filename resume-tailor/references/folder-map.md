@@ -10,7 +10,11 @@ Everything this skill reads lives in **your job-search folder** (whatever folder
 | `search-patterns.md` | Confirmed patterns — what reliably works, what to avoid. Positioning lens. |
 | `hypotheses.md` | Live apply/callback hypotheses. Secondary positioning context. |
 | `keyword-ledger.md` | Per-application record of keywords/framings used + outcome. The self-improving loop. |
+| `run-config.md` | Canonical thresholds, eligible statuses, primary tracker, and automation order for batch runs. |
+| `resume-tailoring-runbook.md` | Eligibility, idempotency, tracker writes, file handoff, and hard stops for the separate resume pass. |
 | `/Resume RAG/` | Prior tailored resumes (markdown) + an index file. Source of proven bullet language. Start at the index. |
+
+When a tracker is external, use the primary tracker named in `run-config.md` as the queue and source of role state. `roles-tracker.md` may be a derived mirror, but it is not a second queue.
 
 ## Gold-standard template
 

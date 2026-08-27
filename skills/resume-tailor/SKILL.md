@@ -35,6 +35,12 @@ A `/Resume RAG/` subfolder holds prior tailored resumes as markdown plus a short
 
 > If the job-search folder isn't accessible (e.g. running in a chat without a folder connected), say so plainly and either run the setup interview to gather the material in-conversation, or ask the user to paste the relevant files. Do not proceed from guesswork — the value of this skill is that it uses real material.
 
+## Scheduled batch mode
+
+When invoked as the separate automated resume pass, read `run-config.md` and `resume-tailoring-runbook.md` before this workflow. Use the configured primary tracker as the queue. Process only roles that satisfy the canonical threshold, verified-live run ID, eligible status, and idempotency rules in those files. Do not use a Markdown mirror as a second queue when an external tracker is primary.
+
+After each draft, write the DOCX and PDF locations, `Needs Human Review` status, drafted date, run ID, attribution, and honest gaps to the same primary tracker record. Add a `keyword-ledger.md` row with outcome `Pending`. The later QA pass reads that state; this pass does not approve a resume or submit an application.
+
 ---
 
 ## Workflow
@@ -91,7 +97,7 @@ File naming (per `resume-style-guide.md`):
 
 Then present the resume files and give a 2–3 line summary: the angle led with, which highlights were chosen and why, and any JD gaps to be ready to address in an interview. Ask the user to confirm the resume is finalized before producing a cover letter or outreach message.
 
-If `keyword-ledger.md` exists, add a row capturing the company, role, and the keywords/framings/highlights led with, leaving the outcome blank to fill in later.
+If `keyword-ledger.md` exists, add a row capturing the company, role, resume version, and the keywords, framing, and highlights led with. Set the outcome to `Pending` until the candidate actually submits it and reports a result.
 
 ### Step 7 — After resume finalization: cover letter or outreach only if requested
 

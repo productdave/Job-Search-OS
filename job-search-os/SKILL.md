@@ -55,13 +55,14 @@ Then create the living files. Prefer the bundled canonical templates in `assets/
 | `keyword-ledger.md` | The resume-effectiveness brain — per application, the keywords/framings used and the outcome. |
 | `active-learnings.md` | Small current-context entrypoint linking to confirmed patterns, active hypotheses, and archived evidence. |
 | `daily-runbook.md` | The model-agnostic operating procedure for a daily search: read order, verification rules, scoring, tracker writes, digest shape, and post-run maintenance. |
+| `resume-tailoring-runbook.md` | The separate batch-resume procedure: eligibility, idempotency, source read order, tracker writes, and QA handoff. |
 | `weekly-review-runbook.md` | The model-agnostic learning, compaction, dependency, and archival procedure. |
 | `run-config.md` | The small editable config for automated runs: schedule, search scope, volume caps, tracker details, attribution fields, and any temporary overrides. |
-| `resume-qa.md` / `resume-qa-runbook.md` | Optional hard requirements and repeatable visual-QA process for generated drafts. |
+| `resume-qa.md` / `resume-qa-runbook.md` | Hard requirements and the repeatable visual-QA process for generated drafts. |
 | `/Resume RAG/` | Library of prior tailored resumes (markdown) + an index, so the closest prior resume can be reused. |
-| A tracker | A roles table the person can see at a glance. Default to `roles-tracker.md`; if a Notion `Roles` database is available or discoverable, mirror each tracked role to Notion as well. Columns/properties: Role, Company, Status, Score, Location, Salary, Link, Date Found, Why It Fits, Concerns, plus learning columns filled in later: Why I Applied, Confirmed Signal, Notes. |
+| A tracker | One authoritative roles table the person can see at a glance. Default to `roles-tracker.md`; if Notion or a spreadsheet is chosen as primary, treat `roles-tracker.md` as an optional derived mirror rather than a second editable source. Columns/properties: Role, Company, Status, Score, Location, Salary, canonical link, first-seen and verification fields, Why It Fits, Concerns, plus learning and resume-state fields. |
 
-If the person wants recurring automation, create `daily-runbook.md`, `weekly-review-runbook.md`, and `run-config.md` during setup. The scheduler prompt itself should stay tiny and stable, for example: "Run the job-search OS using `run-config.md` and `daily-runbook.md`; read all living files fresh; write the tracker and digest." Put learnings and changed instructions back into the markdown files, not into the scheduler prompt.
+If the person wants recurring automation, create `daily-runbook.md`, `resume-tailoring-runbook.md`, `resume-qa-runbook.md`, `weekly-review-runbook.md`, and `run-config.md` during setup. Use three ordered daily passes: search and digest, resume tailoring, then resume QA. Each pass reads and writes the same primary tracker. Scheduler prompts stay tiny and stable and point to the matching runbook. Put learnings and changed instructions back into the Markdown files, not into scheduler prompts.
 
 ### Public portfolio header rule
 
@@ -75,7 +76,7 @@ Use their real answers, not placeholders. Where they don't have an answer yet, l
 
 ### Step 1 — Read config
 
-Read `daily-runbook.md` and `run-config.md` first if they exist. Then read `search-config.md`, `search-patterns.md`, `hypotheses.md`, and `boards-and-companies.md`. If a distilled `active-learnings.md` exists, read it before the longer learning files.
+Read `run-config.md`, then `daily-runbook.md` first if they exist. Then read `search-config.md`, `search-patterns.md`, `hypotheses.md`, and `boards-and-companies.md`. If a distilled `active-learnings.md` exists, read it before the longer learning files.
 
 If `daily-runbook.md` or `run-config.md` is missing but the person is running daily/recurring searches, create them from `references/file-templates.md` before or after the run, depending on urgency. Do not stop the search just because those files are missing.
 
@@ -85,16 +86,17 @@ If the tracker carries any feedback the person left on roles (why they passed or
 
 For Notion/Sheets trackers, look for fields such as `Listing Feedback`, `Why I Applied`, `Confirmed Signal`, `Notes`, `Status`, and `Pass Reason`. Do not add near-duplicate cards; update the existing card if the canonical ATS link, company+title, or requisition ID matches.
 
-### Step 2.5 — Resolve tracker destinations
+### Step 2.5 — Resolve the primary tracker
 
-For any explicit request like "track this job" or "track this role", write to both destinations whenever possible:
+Use `run-config.md` to identify exactly one primary tracker. For any explicit request like "track this job" or "track this role":
 
-- **Local tracker:** update `roles-tracker.md`.
-- **Notion tracker:** if Notion tools are available, search the workspace for the job tracker/database using queries like `job search applications roles tracker interview prep`; prefer a database named `Roles` under a page named `Job Search Tracker`. Fetch the database before writing so property names and select options match the live schema. If a Notion tracker was already discovered in this run, reuse it.
+- If Markdown is primary, update `roles-tracker.md`.
+- If Notion or a spreadsheet is primary, fetch its live schema and update it first. Reuse a tracker already resolved in this run.
+- Refresh `roles-tracker.md` afterward only when `run-config.md` enables it as a derived portable mirror. Do not read independent edits from both copies.
 
-Before creating a Notion row, search for duplicates by canonical ATS URL/requisition ID and by company+role. Update the existing Notion page if found; otherwise create a new page in the `Roles` data source. Record the Notion page URL in the local tracker notes when available.
+Before creating a row, search for duplicates by canonical ATS URL, requisition ID, and normalized company plus role. Update the existing primary record if found; otherwise create a new record. A mirror must retain the primary record ID or URL so provenance stays clear.
 
-If Notion tools are unavailable or no tracker can be found, still update `roles-tracker.md`, mention that Notion could not be updated, and do not invent a Notion location.
+If the configured external primary tracker is unavailable, do not quietly fork the workflow into Markdown. Report that the primary write is blocked. A person may explicitly choose to change the primary tracker in `run-config.md`.
 
 ### Step 3 — Search
 
@@ -117,7 +119,7 @@ For active cards, re-verify the link on each run and stamp "Last verified: [date
 
 ### Step 5 — Score, explain, and log
 
-Score each confirmed role against the profile and config. **Explain your reasoning** when you score or position a role, so the person can correct the system. Add live roles to `roles-tracker.md` and, when available, the Notion `Roles` database with a fit score, why-it-fits, concerns, canonical ATS link, verification signal, date found, and model/agent attribution. Report at least a handful of outcomes per run; if there aren't enough confirmed-live new roles, say so honestly rather than inflating the list.
+Score each confirmed role against the profile and config. **Explain your reasoning** when you score or position a role, so the person can correct the system. Add live roles to the primary tracker with a fit score, why-it-fits, concerns, canonical ATS link, verification signal, verification run ID, date found, and model/agent attribution. Refresh an enabled mirror only after the primary write succeeds. Report at least a handful of outcomes per run; if there aren't enough confirmed-live new roles, say so honestly rather than inflating the list.
 
 When the person decides to apply, hand off to the **resume-tailor** skill (if installed) to build the tailored resume, and add a row to `keyword-ledger.md`.
 
@@ -147,7 +149,14 @@ See `references/learning-loop.md` for the detailed routine and the hypothesis-pr
 
 ### Optional: make it recurring
 
-If a scheduling tool is available, offer to set up a daily or weekly run that does the find-and-track pass plus the learning pass automatically. Keep the scheduled-task prompt deliberately small and model-agnostic: point it at `run-config.md`, `daily-runbook.md`, and the living files. Otherwise give the person a short checklist they can run themselves.
+If a scheduling tool is available, offer three ordered daily tasks and one weekly task:
+
+1. Search reads `run-config.md` then `daily-runbook.md` and stops after the digest.
+2. Resume tailoring reads `run-config.md` then `resume-tailoring-runbook.md` and processes eligible roles from the primary tracker.
+3. Resume QA reads `run-config.md` then `resume-qa-runbook.md` and reviews drafts from the preceding tailoring run.
+4. Weekly review reads `run-config.md` then `weekly-review-runbook.md`.
+
+Keep every scheduled-task prompt deliberately small and model-agnostic. The primary tracker and saved files carry state between passes. If the scheduler cannot express dependencies, leave enough time for the preceding task to finish. Otherwise give the person the same four-pass checklist to run manually.
 
 ---
 
@@ -155,7 +164,8 @@ If a scheduling tool is available, offer to set up a daily or weekly run that do
 
 - **Truthful only.** Reframe and reorder real achievements; never fabricate experience, metrics, titles, or dates.
 - **Living files are the source of truth.** Read them fresh each run; keep them updated.
-- **Prompts stay thin.** Recurring jobs should call the system, not contain the system. Put durable instructions in `daily-runbook.md` and editable knobs in `run-config.md`.
+- **Prompts stay thin.** Recurring jobs should call the system, not contain the system. Put durable instructions in the matching runbook and editable knobs in `run-config.md`.
+- **One tracker is authoritative.** Optional mirrors are derived outputs, not a second place to edit workflow state.
 - **Verify before you trust.** A listing is not real until the canonical ATS URL resolves to a full JD. "Actually live" beats quantity.
 - **Explain your scoring.** Show your reasoning so the person can correct the system — their feedback outranks your inference.
 - **Every application is a data point.** The point of the loop is that the system learns which domains, titles, and keywords actually work.

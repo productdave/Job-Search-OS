@@ -24,15 +24,27 @@ The durable operating procedure for daily or recurring runs. It should be clear 
 
 The small configuration file a scheduler points at. Keep this concise; it is for run mechanics and temporary focus, not the whole search strategy.
 
-- **Run mode** — manual test / daily search / weekly learning pass / combined.
+- **Run mode** — manual test / daily search / resume tailoring / resume QA / weekly review.
 - **Schedule** — timezone, intended cadence, and last successful run.
 - **Search scope** — how many roles to add, how many companies or boards to inspect, and whether to prioritize new roles only or reverify active ones too.
 - **Source priority** — ordered list of boards, ATS sources, target-company career pages, and any sources temporarily disabled.
-- **Tracker integration** — tracker type (markdown / CSV / Notion / Sheets), database or file location, required fields, and duplicate keys.
+- **Tracker integration** — one primary tracker type and location, required fields, duplicate keys, and whether `roles-tracker.md` is maintained as a derived portable mirror.
 - **Attribution** — model/agent name field, run ID format, source URL field, first-seen and last-verified fields.
 - **Digest preferences** — where to write or send the digest, max items, and any separate sections the person expects.
 - **Safety rails** — actions the run should not take automatically, such as applying to jobs, emailing recruiters, or changing hard filters without logging a reason.
 - **Temporary overrides** — short-lived focus areas, companies to pause, or hypotheses to test, each with an expiry date.
+
+## resume-tailoring-runbook.md — how eligible drafts are created
+
+The durable operating procedure for the separate resume pass. It should define:
+
+- read order, beginning with `run-config.md` and the primary tracker;
+- eligibility from the canonical threshold, verified-live run ID, active status, and idempotency state;
+- truthful source rules for `profile.md`, prior resume language, and the target listing;
+- DOCX/PDF generation, rendering, save location, and `Needs Human Review` status;
+- primary-tracker fields and `keyword-ledger.md` writes;
+- the exact handoff set for `resume-qa-runbook.md`;
+- hard stops for applying, outreach, cover letters, invented facts, and overwriting human work.
 
 ## profile.md — the achievement bank
 
@@ -96,10 +108,10 @@ Keep candidate-owned reflections separate from resume-screening evidence. For ea
 
 A table tracking, per application: company, role, resume variant used, the keywords/framings/highlights led with, and the OUTCOME (ATS rejected / callback / interview / offer / no offer). Plus a running "What's working / what's not" summary comparing resumes that advanced vs. those auto-rejected.
 
-## The tracker
+## The primary tracker
 
-A roles table the person sees at a glance. Markdown, CSV, or a Notion/Sheets board if they prefer. Columns:
+A single authoritative roles table the person sees at a glance. It may be Markdown, CSV, Notion, or Sheets. If `roles-tracker.md` mirrors an external primary tracker, the mirror is derived and must retain primary record IDs. Do not accept independent edits from both. Columns:
 
-`Role · Company · Status · Score · Location · Salary · Link (canonical ATS) · Date Found · Last Verified · Source / Agent · Why It Fits · Concerns · Why I Applied · Confirmed Signal · Listing Feedback · Notes`
+`Role · Company · Status · Score · Location · Salary · Link (canonical ATS) · Date Found · Verification · Last Verified · Verified Run ID · Source / Agent · Why It Fits · Concerns · Why I Applied · Confirmed Signal · Listing Feedback · Draft Resume · Draft PDF · Draft Status · Draft Run ID · QA Result · Notes`
 
 Suggested status values: Found · Researching · Shortlist · Applied · Phone Screen · Interviewing · Offer · Pass · Expired.

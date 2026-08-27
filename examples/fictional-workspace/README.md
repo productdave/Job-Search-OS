@@ -20,4 +20,6 @@ node ../../job-search-os/scripts/setup-workspace.mjs ../../my-job-search
 - a tracker with live, below-threshold, and needs-verification examples;
 - hypotheses that remain separate from confirmed patterns;
 - a keyword ledger that connects a submitted resume to an outcome;
-- one-source-of-truth runtime thresholds.
+- one-source-of-truth runtime thresholds;
+- one authoritative tracker with an optional derived Markdown mirror;
+- separate search, resume-tailoring, and resume-QA passes.

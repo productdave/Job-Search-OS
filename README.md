@@ -68,6 +68,8 @@ Keep each kind of information in exactly one place:
 | Search preferences and fit logic | `search-config.md` |
 | Runtime thresholds, caps, and integrations | `run-config.md` |
 | Durable daily procedure | `daily-runbook.md` |
+| Durable resume-drafting procedure | `resume-tailoring-runbook.md` |
+| Durable resume-QA procedure | `resume-qa-runbook.md` |
 | Durable weekly review and maintenance procedure | `weekly-review-runbook.md` |
 | Current roles and statuses | `roles-tracker.md` or the configured external tracker |
 | Confirmed patterns | `search-patterns.md` |
@@ -75,7 +77,9 @@ Keep each kind of information in exactly one place:
 | Chronological evidence | `learnings-log.md` |
 | Interview reflections and next experiments | `interview-learnings.md` |
 
-Scheduler prompts should only point at the workspace and name the relevant runbook. Do not paste the workflow into the scheduler. When the process changes, update the canonical Markdown file once.
+Choose one primary tracker. If the primary tracker is Notion or a spreadsheet, `roles-tracker.md` may be kept as a derived portable mirror, but it must not become a second place for independent edits. Human feedback, status changes, and resume state are read from and written to the primary tracker first.
+
+Scheduler prompts should only point at the private workspace and name the relevant runbook. Do not paste the workflow into the scheduler. When the process changes, update the canonical Markdown file once.
 
 Example daily trigger:
 
@@ -84,6 +88,18 @@ Run the Job Search OS in /absolute/path/to/my-job-search.
 Read run-config.md, then daily-runbook.md, then follow the living files they name.
 The files are the source of truth. Respect all hard stops.
 ```
+
+## The three-pass daily automation
+
+Keep search, resume drafting, and resume QA as separate passes. Each pass finishes by writing its state to the same primary tracker, which becomes the handoff to the next pass.
+
+| Order | Pass | Reads | Stops after |
+|---:|---|---|---|
+| 1 | Daily search | `run-config.md`, then `daily-runbook.md` | Verified roles, tracker updates, and digest |
+| 2 | Resume tailoring | `run-config.md`, then `resume-tailoring-runbook.md` | Eligible drafts saved as `Needs Human Review` |
+| 3 | Resume QA | `run-config.md`, then `resume-qa-runbook.md` | QA verdicts and remaining human actions |
+
+Run the passes in this order. If the scheduler cannot wait for the previous pass to finish, leave enough time between them for the prior pass to complete. None of these passes submits applications, sends outreach, or creates cover letters.
 
 ## Core workflow
 
@@ -123,6 +139,17 @@ Start my Job Search OS onboarding.
 Web browsing, scheduling, Notion, spreadsheet, DOCX, and PDF features depend on the tools supplied by the host agent. The Markdown workflow works without those optional integrations.
 
 The canonical skill sources are the three top-level skill folders. Before publishing a plugin update, run `node scripts/sync-onboarding.mjs` and `node scripts/sync-plugin-skills.mjs`. Do not edit the generated `skills/` copies directly.
+
+## Change the process in one place
+
+- To change a personal search, edit the canonical file inside the private workspace. Do not make the same change in this public toolkit or in a scheduler prompt.
+- Put candidate preferences and scoring logic in `search-config.md`.
+- Put thresholds, caps, the primary tracker, and temporary overrides in `run-config.md`.
+- Put durable search, resume, QA, or maintenance steps in the matching runbook.
+- Treat scheduler prompts as timing and routing only. They should not contain a second copy of the workflow.
+- Treat the public GitHub repository as the reusable template. Change it only when the improvement should apply to every future installation.
+
+When changing this public toolkit, edit `index.html` and the three canonical top-level skill folders. Then run the two sync scripts above, rebuild the three `.skill` archives from those canonical folders, and validate source-to-package parity before publishing. The generated `skills/` directory and `.skill` files are outputs, not independent instruction sources.
 
 ## Safety boundaries
 

@@ -76,3 +76,72 @@ The first run should:
 - leave unknown facts as TODOs;
 - never apply, send outreach, or invent candidate information;
 - explain which living file owns each kind of future change.
+
+## What the agent should create
+
+The installation folder is a public, reusable toolkit. The agent should create a separate private workspace for the candidate's facts, targets, trackers, outcomes, and generated drafts.
+
+Inside that private workspace:
+
+- `profile.md` owns verified career facts and achievements;
+- `search-config.md` owns candidate preferences and fit scoring;
+- `run-config.md` owns thresholds, caps, integrations, and the primary tracker;
+- `daily-runbook.md` owns the search and digest sequence;
+- `resume-tailoring-runbook.md` owns batch resume eligibility and draft handoff;
+- `resume-qa-runbook.md` owns visual and factual QA;
+- `weekly-review-runbook.md` owns learning, archiving, and context maintenance.
+
+The agent should choose one primary tracker during onboarding. A Markdown tracker may be a portable mirror of an external tracker, but it is not a second source for independent edits.
+
+## Test once before scheduling
+
+Run one manual search and review the results before turning on recurring work. Confirm that:
+
+1. target roles, locations, compensation, and exclusions are correct;
+2. the primary tracker receives new and updated roles without duplicates;
+3. unverified listings are clearly separated from confirmed-live listings;
+4. the score and resume-draft thresholds in `run-config.md` are correct;
+5. every generated resume stays marked `Needs Human Review`.
+
+## Optional recurring passes
+
+If the AI client supports scheduled tasks, create three ordered tasks that all point to the same private workspace:
+
+### 1. Daily search
+
+```text
+Run the Job Search OS in [ABSOLUTE PRIVATE WORKSPACE PATH].
+Read run-config.md, then daily-runbook.md, then follow the living files they name.
+Stop after the digest. Do not create resumes, apply, or send outreach.
+```
+
+### 2. Resume tailoring
+
+```text
+Run the resume-tailoring pass in [ABSOLUTE PRIVATE WORKSPACE PATH].
+Read run-config.md, then resume-tailoring-runbook.md, then follow the living files they name.
+Process only eligible roles from the primary tracker. Save drafts as Needs Human Review. Do not apply, send outreach, or create cover letters.
+```
+
+### 3. Resume QA
+
+```text
+Run the resume-QA pass in [ABSOLUTE PRIVATE WORKSPACE PATH].
+Read run-config.md, then resume-qa-runbook.md, then follow the living files they name.
+Review drafts from the latest tailoring pass, record verdicts in the primary tracker, and leave every draft as Needs Human Review.
+```
+
+Run them in that order. The primary tracker and saved draft files carry state between passes. The scheduled messages should remain short pointers; do not copy the detailed workflow into them.
+
+## How to change the process later
+
+Change the private workspace, not three different places:
+
+- preferences or scoring logic: edit `search-config.md`;
+- thresholds, caps, tracker, or temporary focus: edit `run-config.md`;
+- durable search steps: edit `daily-runbook.md`;
+- durable resume steps: edit `resume-tailoring-runbook.md`;
+- durable QA steps: edit `resume-qa-runbook.md`;
+- weekly learning or maintenance: edit `weekly-review-runbook.md`.
+
+Do not repeat the change in the scheduler prompt. Change this public GitHub toolkit only when the improvement should become the default for future installations.

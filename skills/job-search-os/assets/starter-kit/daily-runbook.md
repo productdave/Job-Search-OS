@@ -10,7 +10,7 @@ Read this file after `run-config.md`. When they disagree, `run-config.md` owns c
 4. `search-patterns.md`
 5. `hypotheses.md`
 6. `boards-and-companies.md`
-7. `roles-tracker.md` or the configured primary tracker
+7. the configured primary tracker; read `roles-tracker.md` only when it is primary or needed as a derived mirror
 8. `keyword-ledger.md`
 9. `profile.md` only when scoring nuance or resume eligibility requires candidate evidence
 
@@ -47,9 +47,11 @@ Read this file after `run-config.md`. When they disagree, `run-config.md` owns c
 ### 5. Update trackers
 
 - Update the configured primary tracker.
-- Maintain `roles-tracker.md` as a portable mirror unless `run-config.md` disables it.
+- If an external tracker is primary, refresh `roles-tracker.md` only as a derived portable mirror when `run-config.md` enables it.
+- Never accept independent workflow state from both the primary tracker and its mirror. Human feedback and status changes belong in the primary tracker.
 - Preserve human-authored notes.
 - Attribute automated changes.
+- Stamp confirmed listings with the verification date and run ID so the resume pass can prove they were live in this run.
 
 ### 6. Produce the digest
 
@@ -70,4 +72,4 @@ Append only meaningful evidence and changes to `learnings-log.md`. Do not paste 
 
 ## Handoff boundaries
 
-The daily search stops after the digest. Resume tailoring and resume QA are separate passes. Applications, outreach, and cover letters are always outside this automated run.
+The daily search stops after the digest. It must not draft resumes. Resume tailoring reads `resume-tailoring-runbook.md` in a later pass, and resume QA reads `resume-qa-runbook.md` after that. The primary tracker, verification run ID, and saved files are the handoff. Applications, outreach, and cover letters are always outside these automated runs.

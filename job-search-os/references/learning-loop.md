@@ -19,7 +19,7 @@ What turns a job tracker into a self-improving system. Run this as a recurring p
 
 6. **Feed wins back into the resume.** When a tailored resume earns a callback, extract the winning keywords/highlights and add them to `profile.md` (so future resumes can lead with them) and mark them in `keyword-ledger.md`. When a framing keeps getting filtered out, stop leading with it.
 
-7. **Tune the run, not the scheduler.** If the learning changes how daily searches should run, update `run-config.md` or `daily-runbook.md`. Keep scheduled-task prompts short and stable so the same job can run under multiple LLMs.
+7. **Tune the run, not the scheduler.** If learning changes runtime values, update `run-config.md`. If it changes durable behavior, update the relevant daily, resume, QA, or weekly runbook. Keep scheduled-task prompts short and stable so the same workflow can run under multiple agents.
 
 ## Principles for the loop
 
@@ -31,6 +31,6 @@ What turns a job tracker into a self-improving system. Run this as a recurring p
 
 ## Optional integrations
 
-- **Scheduling** — if a scheduling tool is available, offer a daily find-and-track pass and a weekly learning pass. The schedule should point at `run-config.md` and `daily-runbook.md`; do not bury durable instructions inside the scheduler text.
+- **Scheduling** — if a scheduling tool is available, keep search, resume tailoring, and resume QA as ordered passes that share one primary tracker, plus a weekly review. Each schedule points at `run-config.md` and its matching runbook; do not bury durable instructions inside the scheduler text.
 - **Notion / Sheets tracker** — if the person keeps their tracker in Notion or a spreadsheet, read status and feedback from there each run, and write attribution (which model/agent created a card, the date) so they can compare sources over time.
 - **Resume upload loop** — when the person uploads a new tailored resume (to the tracker card or the folder), compare it to `profile.md` and pull any new bullet variants, reframed achievements, or summary copy back into the achievement bank.

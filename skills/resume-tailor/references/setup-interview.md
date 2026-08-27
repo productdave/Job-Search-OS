@@ -10,6 +10,7 @@ If the user has uploaded or pointed to an existing resume, **extract everything 
 2. **Constraints:** target locations (remote / specific cities / open to relocation), minimum salary, company stage/size preferences, hard exclusions (industries, role types, or title levels too junior or too senior).
 3. **Proof:** their biggest achievements with real numbers (revenue, growth, scale, users, team size). Push for metrics — these become the achievement bank.
 4. **Materials and public links:** do they have an existing resume, prior tailored resumes, a writing sample they want cover letters to sound like, or public profiles/portfolios such as LinkedIn and GitHub? Ask them to share or point to these.
+5. **Workspace and tracking:** where should the private workspace and generated resumes live, which single tracker should be authoritative, and do they want separate scheduled search, resume-tailoring, and resume-QA passes after a manual test?
 
 ## Then create the files
 

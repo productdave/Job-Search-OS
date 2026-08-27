@@ -70,18 +70,18 @@
           <tr><td>Search</td><td>Query configured titles, companies, and sources.</td><td>Aggregators are discovery sources, not proof of recency.</td></tr>
           <tr><td>Verification</td><td>Resolve the canonical employer or ATS page and confirm the full listing.</td><td>Unconfirmed roles are labelled, not padded into the digest.</td></tr>
           <tr><td>Scoring</td><td>Explain fit and concerns against explicit criteria.</td><td>The default eligibility threshold is <code>&gt;= 8/10</code>.</td></tr>
-          <tr><td>Tracking</td><td>Deduplicate and update the configured tracker plus a portable mirror.</td><td>No application or outreach is sent.</td></tr>
+          <tr><td>Tracking</td><td>Deduplicate and update one primary tracker. Refresh a portable mirror only as a derived copy.</td><td>No application or outreach is sent, and the mirror never becomes a second editable queue.</td></tr>
         </tbody>
       </table>
     </div></section>
 
     <section><div class="wrap">
       <h2>Resume production</h2>
-      <p class="lead">A separate resume pass reads only eligible, live roles. It selects and reframes verified achievements from <code>profile.md</code>, generates a draft, renders it, and leaves it marked for human review.</p>
+      <p class="lead">Two ordered passes follow the search. Resume tailoring reads only eligible, verified roles and creates drafts. Resume QA then checks the exact drafts from that run. Both use the same primary tracker as their handoff.</p>
       <div class="grid">
         <article class="card"><h3>Truth constraint</h3><p>No metric, employer, responsibility, title, date, or public URL can be invented.</p></article>
-        <article class="card"><h3>Idempotency</h3><p>A valid existing draft is skipped unless regeneration is explicitly requested.</p></article>
-        <article class="card"><h3>Visual QA</h3><p>Generated pages are rendered and checked for clipping, spacing, broken links, and formatting drift.</p></article>
+        <article class="card"><h3>Eligibility and idempotency</h3><p>The score rule comes from <code>run-config.md</code>. The listing must be live in the preceding search run, and a valid existing draft is skipped unless regeneration was requested.</p></article>
+        <article class="card"><h3>Separate visual QA</h3><p>The QA pass renders every generated page, checks facts, links, clipping, spacing, and formatting, and records its verdict without approving submission.</p></article>
         <article class="card"><h3>Human gate</h3><p>Automated output remains a draft. Applying and sending outreach are separate human decisions.</p></article>
       </div>
     </div></section>

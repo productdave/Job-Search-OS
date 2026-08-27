@@ -2,7 +2,7 @@
 
 Last updated: {{TODAY}}
 
-The configured primary tracker is `{{TRACKER}}`. Keep this Markdown file as a portable mirror unless `run-config.md` says otherwise.
+The configured primary tracker is `{{TRACKER}}`. If an external tracker is primary, this Markdown file is a derived portable mirror only. Read human feedback and write status changes to the primary tracker first; never edit both independently.
 
 ## Status values
 
@@ -10,9 +10,9 @@ The configured primary tracker is `{{TRACKER}}`. Keep this Markdown file as a po
 
 ## Active roles
 
-| Role ID | Company | Role | Status | Score | Location | Compensation | Canonical URL | Req ID | First seen | Last verified | Why it fits | Concerns | Source / agent |
-|---|---|---|---|---:|---|---|---|---|---|---|---|---|---|
-| — | — | — | — | — | — | — | — | — | — | — | — | — | — |
+| Role ID | Company | Role | Status | Score | Location | Compensation | Canonical URL | Req ID | First seen | Verification | Last verified | Verified run ID | Why it fits | Concerns | Source / agent |
+|---|---|---|---|---:|---|---|---|---|---|---|---|---|---|---|---|
+| — | — | — | — | — | — | — | — | — | — | — | — | — | — | — | — |
 
 ## Candidate feedback
 
@@ -22,6 +22,6 @@ The configured primary tracker is `{{TRACKER}}`. Keep this Markdown file as a po
 
 ## Resume state
 
-| Role ID | Draft resume | Draft PDF | Draft status | Drafted date | QA result | Notes |
-|---|---|---|---|---|---|---|
-| — | — | — | — | — | — | — |
+| Role ID | Draft resume | Draft PDF | Draft status | Drafted date | Draft run ID | QA result | QA cycles | Notes |
+|---|---|---|---|---|---|---|---:|---|
+| — | — | — | — | — | — | — | — | — |
