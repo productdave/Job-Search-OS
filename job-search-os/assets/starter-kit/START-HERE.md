@@ -32,7 +32,7 @@ Change a runtime value only in `run-config.md`. Do not repeat it in the runbooks
 Use:
 
 ```text
-Read START-HERE.md, then help me finish onboarding this Job Search OS.
+Read START-HERE.md, then help me finish onboarding this Job Search Harness.
 Treat the Markdown files as the source of truth.
 Ask before replacing verified facts or changing hard constraints.
 ```
@@ -42,7 +42,7 @@ Ask before replacing verified facts or changing hard constraints.
 Daily trigger:
 
 ```text
-Run the Job Search OS in [ABSOLUTE WORKSPACE PATH].
+Run the Job Search Harness in [ABSOLUTE WORKSPACE PATH].
 Read run-config.md, then daily-runbook.md, then follow the living files they name.
 The files are the source of truth. Respect all hard stops.
 ```

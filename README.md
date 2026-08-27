@@ -1,27 +1,35 @@
 <div align="center">
 
-<img src="assets/readme-cover-v3.png" width="100%" alt="Job Search OS — Job searching should not eat your whole day." />
+<img src="assets/readme-cover-v3.png" width="100%" alt="Job Search Harness — Job searching should not eat your whole day." />
 
 </div>
 
-# Job Search OS
+# Job Search Harness
 
-A privacy-safe starter kit for running a repeatable, evidence-based job search with an AI agent.
+A personal AI harness for putting more credible shots on goal—without letting the searching, checking, and resume rewriting eat your whole day.
 
-The system keeps the candidate profile, search rules, applications, outcomes, and operating instructions in plain Markdown. The files remain the source of truth, so the workflow can run in Claude, Codex, or another file-capable agent without maintaining separate copies of the process in scheduler prompts.
+Let’s get real. A manual job search can become death by a thousand cuts: search the same sites, open the same tabs, rewrite the same resume, submit, wait, and then start again. The emotional cost grows because every application carries hours of hope before you know whether the role was even live or whether your positioning worked.
+
+The Job Search Harness carries that repeated work. It finds and verifies roles, explains fit, prepares truthful resume drafts, and records what happened. You still choose the direction, review every claim, make the final call, and apply yourself.
+
+The point is not to hand your career to AI. It is to give AI your facts, rules, guardrails, and feedback—so the work stays connected and the next run learns from the last one.
+
+> **Why “harness”?** An AI model can produce an answer. A harness turns it into a repeatable process: your profile supplies verified facts, your configuration supplies direction, your tracker carries state, and outcomes feed the next iteration. The harness carries the process. You keep the judgement.
+
+The public product name is **Job Search Harness**. The repository URL, `job-search-os` skill identifier, folder name, and existing `.skill` filename remain unchanged so earlier links and installations continue to work.
 
 ## Start here
 
-Open the **[live guided onboarding](https://productdave.github.io/Job-Search-OS/)** to see the page as a website. It explains what the system does, how the parts work together, what the AI handles, and what remains under human control.
+Open the **[live guided onboarding](https://productdave.github.io/Job-Search-OS/)** to see the page as a website. It explains what the harness does, how the parts work together, what the AI handles, and what remains under human control.
 
 > GitHub's repository view shows HTML source code. Use the live onboarding link above when viewing the guide on a phone or sharing it with someone else.
 
 Set this up on the computer where the private job-search files should live. Use an AI app that can read and update local files, such as Codex, Claude Cowork or Claude Code, Cursor, or Visual Studio Code with an AI coding agent. A chat-only window without file access cannot run the toolkit.
 
-Use the link to this specific **Job Search OS repository**, not a GitHub profile link. Send the agent:
+Use the link to this specific **Job Search Harness repository**, not a GitHub profile link. Send the agent:
 
 ```text
-Install this Job Search OS toolkit for me from this repository:
+Install this Job Search Harness toolkit for me from this repository:
 
 https://github.com/productdave/Job-Search-OS
 
@@ -33,7 +41,7 @@ Keep my personal job-search information in a separate private folder, not inside
 Codex can install the repository as one bundled plugin. Other file-capable agents can use the same toolkit after opening the downloaded repository folder. See [INSTALL.md](./INSTALL.md) for the download fallback. After the toolkit is installed or open, send:
 
 ```text
-Start my Job Search OS onboarding. Show me the guide first, then walk me through setup in plain English.
+Start my Job Search Harness onboarding. Show me the guide first, then walk me through setup in plain English.
 ```
 
 The onboarding creates a plain-language first brief. The AI then builds a separate private workspace rather than asking the user to understand files or run commands.
@@ -58,7 +66,7 @@ The setup command refuses to overwrite a non-empty folder unless `--force` is pr
 | [Download `job-search-maintenance.skill`](https://raw.githubusercontent.com/productdave/Job-Search-OS/main/job-search-maintenance.skill) · [read the instructions](./job-search-maintenance/SKILL.md) | Audits dependencies, archives obsolete artifacts, and compacts oversized context |
 | [`job-search-os/assets/starter-kit/`](./job-search-os/assets/starter-kit/) | Canonical blank workspace templates |
 | [`examples/fictional-workspace/`](./examples/fictional-workspace/) | Clearly labelled fictional data showing completed files |
-| [Architecture walkthrough](https://productdave.github.io/Job-Search-OS/How%20I%20Built%20My%20Job%20Search%20OS.html) | Generic architecture, operating loop, and maintenance model |
+| [How the harness works](https://productdave.github.io/Job-Search-OS/How%20I%20Built%20My%20Job%20Search%20OS.html) | Generic architecture, operating loop, and maintenance model |
 
 Files ending in `.skill` are ZIP-based installer packages. GitHub cannot preview their contents and may show an empty-looking file page. Use the **Download** link for installation or **read the instructions** to inspect the human-readable source.
 
@@ -88,7 +96,7 @@ Scheduler prompts should only point at the private workspace and name the releva
 Example daily trigger:
 
 ```text
-Run the Job Search OS in /absolute/path/to/my-job-search.
+Run the Job Search Harness in /absolute/path/to/my-job-search.
 Read run-config.md, then daily-runbook.md, then follow the living files they name.
 The files are the source of truth. Respect all hard stops.
 ```
@@ -105,7 +113,7 @@ Keep search, resume drafting, and resume QA as separate passes. Each pass finish
 
 Run the passes in this order. If the scheduler cannot wait for the previous pass to finish, leave enough time between them for the prior pass to complete. None of these passes submits applications, sends outreach, or creates cover letters.
 
-## Core workflow
+## What the harness does
 
 1. Read recent feedback and outcomes.
 2. Search configured sources.
@@ -137,7 +145,7 @@ Read [`PRIVACY.md`](./PRIVACY.md) before publishing a fork. Git remote URLs, com
 The repository-level plugin is the preferred install experience. For hosts that support standalone skills only, download the `.skill` files above and install them separately. On the first run, say:
 
 ```text
-Start my Job Search OS onboarding.
+Start my Job Search Harness onboarding.
 ```
 
 Web browsing, scheduling, Notion, spreadsheet, DOCX, and PDF features depend on the tools supplied by the host agent. The Markdown workflow works without those optional integrations.
@@ -198,4 +206,4 @@ The templates default to these hard stops:
 
 ## Limitations
 
-This is an agent workflow, not a hosted job board or autonomous application service. Listing verification can fail on blocked or client-rendered pages. A human should review every recommendation and every application document before acting.
+This is an agent harness, not a hosted job board or autonomous application service. Listing verification can fail on blocked or client-rendered pages. A human should review every recommendation and every application document before acting.

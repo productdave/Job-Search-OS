@@ -31,6 +31,6 @@ If the user has uploaded or pointed to an existing resume, **extract everything 
 
 **`/Resume RAG/`** — seed it with whatever resumes they share, saved as markdown, plus a short index file (`00_source_index.md`) listing each file with its target domain/title so the skill can find the closest match quickly.
 
-Optionally, if they also want the full job-search system (config, learnings loop, tracker), point them to the companion **job-search-os** skill, which builds the rest of the living files.
+Optionally, if they also want the full Job Search Harness (config, learning loop, tracker), point them to the companion **job-search-os** skill, which builds the rest of the living files.
 
 Once the files exist, confirm with the user and continue to the normal workflow in `SKILL.md`.

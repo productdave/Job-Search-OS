@@ -1,6 +1,6 @@
 # {{WORKSPACE_NAME}}
 
-This is a private, file-based Job Search OS for **{{NAME}}**.
+This is a private, file-based Job Search Harness for **{{NAME}}**.
 
 Start with [START-HERE.md](START-HERE.md). The Markdown files in this folder are the source of truth. Scheduled tasks and agent prompts should point here instead of duplicating the workflow.
 

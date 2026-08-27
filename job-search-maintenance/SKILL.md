@@ -1,11 +1,11 @@
 ---
 name: job-search-maintenance
-description: Maintain a file-based Job Search OS by auditing dependencies, archiving superseded scripts and generated artifacts without deleting them, and compacting oversized living context into lossless archives plus small indexed entrypoints. Use when someone asks to clean up, maintain, archive, compact, prune, reduce context size, or prevent their job-search files and agent memory from growing without bound.
+description: Maintain a file-based Job Search Harness by auditing dependencies, archiving superseded scripts and generated artifacts without deleting them, and compacting oversized living context into lossless archives plus small indexed entrypoints. Use when someone asks to clean up, maintain, archive, compact, prune, reduce context size, or prevent their job-search files and agent memory from growing without bound.
 ---
 
-# Job Search Maintenance
+# Job Search Harness Maintenance
 
-Keep the working system small without losing its history. The maintenance pass has two independent lanes: artifact lifecycle and context lifecycle.
+Keep the working harness small without losing its history. The maintenance pass has two independent lanes: artifact lifecycle and context lifecycle.
 
 ## Start with a dry audit
 

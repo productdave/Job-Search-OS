@@ -1,4 +1,4 @@
 interface:
-  display_name: "Job Search Maintenance"
-  short_description: "Archive clutter and compact Job Search OS context"
-  default_prompt: "Use $job-search-maintenance to audit and maintain my Job Search OS without deleting historical data."
+  display_name: "Job Search Harness Maintenance"
+  short_description: "Archive clutter and compact Job Search Harness context"
+  default_prompt: "Use $job-search-maintenance to audit and maintain my Job Search Harness without deleting historical data."
