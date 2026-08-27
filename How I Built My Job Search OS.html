@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="A generic walkthrough of the Job Search OS architecture and feedback loop.">
-  <title>How the Job Search OS Works</title>
+  <meta name="description" content="A generic walkthrough of the Job Search Harness architecture, guardrails, and feedback loop.">
+  <title>How the Job Search Harness Works</title>
   <style>
     :root { --ink:#18332d; --muted:#5d706a; --paper:#f7f4ed; --green:#176b55; --mint:#dcefe7; --line:#d8ded8; --coral:#e77d5b; }
     * { box-sizing:border-box; }
@@ -37,17 +37,17 @@
   </style>
 </head>
 <body>
-  <nav class="wrap"><strong>Job Search OS</strong><a href="index.html">Start onboarding →</a></nav>
+  <nav class="wrap"><strong>Job Search Harness</strong><a href="index.html">Start onboarding →</a></nav>
   <header class="wrap">
     <span class="tag">Generic architecture</span>
-    <h1>How the Job Search OS works</h1>
-    <p>A practical blueprint for separating personal facts, search decisions, automation logic, resume production, and learning history so the system improves without becoming impossible to maintain.</p>
+    <h1>How the Job Search Harness works</h1>
+    <p>A practical blueprint for wrapping an AI agent in verified facts, search rules, safety boundaries, resume standards, and feedback—so repeated work gets easier without handing over the final decision.</p>
   </header>
 
   <main>
     <section><div class="wrap">
-      <h2>The design principle</h2>
-      <p class="lead">The live Markdown workspace owns the workflow. Agents and schedulers read it; they do not keep separate copies of it.</p>
+      <h2>The harness principle</h2>
+      <p class="lead">A model can produce an answer. The harness turns that ability into a repeatable process. The live Markdown workspace owns the workflow; agents and schedulers read it instead of keeping separate copies.</p>
       <div class="rule"><strong>Change process once.</strong> Preferences go in <code>search-config.md</code>, runtime thresholds in <code>run-config.md</code>, and durable steps in the relevant runbook. Scheduled prompts stay as thin pointers.</div>
       <div class="grid">
         <article class="card"><h3>Candidate layer</h3><p><code>profile.md</code> and <code>resume-style-guide.md</code> contain verified facts and presentation rules.</p></article>
@@ -88,7 +88,7 @@
 
     <section><div class="wrap">
       <h2>Learning without context bloat</h2>
-      <p class="lead">The system keeps current rules small while preserving exact history behind indexes and archives.</p>
+      <p class="lead">The harness keeps current rules small while preserving exact history behind indexes and archives.</p>
       <table>
         <thead><tr><th>Tier</th><th>Contents</th><th>Loading rule</th></tr></thead>
         <tbody>

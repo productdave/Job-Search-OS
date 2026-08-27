@@ -1,16 +1,16 @@
 {
   "name": "job-search-os",
-  "version": "1.0.0",
-  "description": "A guided, self-improving job-search system for finding roles, tailoring truthful resumes, and learning from outcomes.",
+  "version": "1.1.0",
+  "description": "A personal AI job-search harness for finding live roles, preparing truthful resumes, and learning from outcomes.",
   "author": {
-    "name": "Job Search OS Contributors"
+    "name": "Job Search Harness Contributors"
   },
   "skills": "./skills/",
   "interface": {
-    "displayName": "Job Search OS",
-    "shortDescription": "A guided job search that learns what works.",
-    "longDescription": "Job Search OS guides nontechnical users from initial setup through role discovery, listing verification, resume tailoring, outcome tracking, and safe long-term maintenance.",
-    "developerName": "Job Search OS Contributors",
+    "displayName": "Job Search Harness",
+    "shortDescription": "More credible shots on goal, less repeated work.",
+    "longDescription": "Job Search Harness carries the repeated work of role discovery, listing verification, resume preparation, outcome tracking, and long-term learning while every consequential decision stays with the candidate.",
+    "developerName": "Job Search Harness Contributors",
     "category": "Productivity",
     "capabilities": [
       "Interactive",
@@ -18,9 +18,9 @@
       "Write"
     ],
     "defaultPrompt": [
-      "Start my Job Search OS onboarding.",
+      "Start my Job Search Harness onboarding.",
       "Help me set up my job search.",
-      "Show me how the system works."
+      "Show me how the Job Search Harness works."
     ],
     "brandColor": "#176B55"
   }

@@ -18,7 +18,7 @@ Append-only chronological evidence. Keep recent entries live; move complete olde
 
 ### {{TODAY}} — Workspace initialized
 
-- Signal: Generic Job Search OS workspace created.
+- Signal: Generic Job Search Harness workspace created.
 - Candidate-authored explanation: Pending onboarding.
 - System interpretation: No search or positioning conclusions yet.
 - Files changed: Initial templates only.

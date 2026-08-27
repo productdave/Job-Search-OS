@@ -10,7 +10,7 @@ const scriptDir = path.dirname(fileURLToPath(import.meta.url));
 const templateRoot = path.resolve(scriptDir, "..", "assets", "starter-kit");
 
 const help = `
-Job Search OS workspace setup
+Job Search Harness workspace setup
 
 Usage:
   node job-search-os/scripts/setup-workspace.mjs [destination] [options]
@@ -165,7 +165,7 @@ async function main() {
   const today = new Date().toISOString().slice(0, 10);
   const values = {
     NAME: answers.name,
-    WORKSPACE_NAME: answers.name === "Your Name" ? "Job Search OS" : `${answers.name}'s Job Search OS`,
+    WORKSPACE_NAME: answers.name === "Your Name" ? "Job Search Harness" : `${answers.name}'s Job Search Harness`,
     TARGET_TITLES: answers.titles,
     LOCATION: answers.location,
     SALARY: answers.salary,

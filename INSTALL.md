@@ -1,8 +1,12 @@
-# Install Job Search OS
+# Install Job Search Harness
 
-Job Search OS helps a file-capable AI agent find open roles, prepare truthful resume drafts, track progress, and learn from outcomes. The repository contains the whole toolkit. Codex can install it as a bundled plugin; other AI agents can run the same workflow after opening the downloaded folder.
+The Job Search Harness gives a file-capable AI agent a repeatable process for finding open roles, preparing truthful resume drafts, tracking progress, and learning from outcomes. It carries the repeated work; the candidate keeps the judgement and applies personally.
 
-Before installing, open the [live guided onboarding](https://productdave.github.io/Job-Search-OS/) to see how the system works and what the setup will ask you for. This link opens the rendered website, including on mobile.
+The repository contains the whole harness. Codex can install it as a bundled plugin; other AI agents can run the same workflow after opening the downloaded folder.
+
+> The public product is called **Job Search Harness**. The repository URL and technical `job-search-os` folder and skill names remain unchanged for compatibility with existing links and installations.
+
+Before installing, open the [live guided onboarding](https://productdave.github.io/Job-Search-OS/) to see how the harness works and what the setup will ask you for. This link opens the rendered website, including on mobile.
 
 ## 1. Use the right kind of AI app
 
@@ -17,7 +21,7 @@ Examples include:
 
 A normal chat window that cannot access files is not enough.
 
-## 2. Copy the Job Search OS repository link
+## 2. Copy the Job Search Harness repository link
 
 Use the link to this specific repository:
 
@@ -32,7 +36,7 @@ Do not use a GitHub profile link such as `https://github.com/ACCOUNT-NAME`, and 
 Paste this message:
 
 ```text
-Install this Job Search OS toolkit for me from this repository:
+Install this Job Search Harness toolkit for me from this repository:
 
 https://github.com/productdave/Job-Search-OS
 
@@ -54,7 +58,7 @@ The standalone files ending in `.skill` are packaged downloads, not readable web
 5. Paste:
 
 ```text
-I have downloaded and opened the Job Search OS folder.
+I have downloaded and opened the Job Search Harness folder.
 
 Please read INSTALL.md and job-search-os/SKILL.md. Then open job-search-os/references/welcome.html and guide me through setup in plain English.
 
@@ -66,10 +70,10 @@ Create my private job-search workspace in a separate folder. Do not put my perso
 After the agent confirms that the toolkit is installed or open, send:
 
 ```text
-Start my Job Search OS onboarding. Show me the guide first, then walk me through setup in plain English.
+Start my Job Search Harness onboarding. Show me the guide first, then walk me through setup in plain English.
 ```
 
-## First-run contract
+## What a successful first run looks like
 
 The first run should:
 
@@ -114,7 +118,7 @@ If the AI client supports scheduled tasks, create three ordered tasks that all p
 ### 1. Daily search
 
 ```text
-Run the Job Search OS in [ABSOLUTE PRIVATE WORKSPACE PATH].
+Run the Job Search Harness in [ABSOLUTE PRIVATE WORKSPACE PATH].
 Read run-config.md, then daily-runbook.md, then follow the living files they name.
 Stop after the digest. Do not create resumes, apply, or send outreach.
 ```

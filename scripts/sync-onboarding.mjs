@@ -15,7 +15,7 @@ if (!fs.existsSync(source)) {
 const content = fs.readFileSync(source, "utf8");
 const requiredPhrases = [
   "Job searching should not eat your whole day",
-  "Job Search OS repository link",
+  "Job Search Harness repository link",
   "Copy the installation message",
 ];
 

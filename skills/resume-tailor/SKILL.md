@@ -11,7 +11,7 @@ The resume anchors the narrative. Do **not** create the cover letter or outreach
 
 This skill does NOT invent achievements or metrics. Everything comes from your source files. If something the JD wants is not in your background, name it as a gap rather than fabricating it.
 
-> **Pairs with the `job-search-os` skill.** If you have it installed, this skill reads the same living files (`resume-style-guide.md`, `profile.md`, `search-config.md`, `search-patterns.md`, `hypotheses.md`, `keyword-ledger.md`) and writes outcomes back to them. They are designed to be used together, but resume-tailor also works on its own.
+> **Pairs with the Job Search Harness (`job-search-os` skill).** If you have it installed, this skill reads the same living files (`resume-style-guide.md`, `profile.md`, `search-config.md`, `search-patterns.md`, `hypotheses.md`, `keyword-ledger.md`) and writes outcomes back to them. They are designed to be used together, but resume-tailor also works on its own.
 
 ---
 

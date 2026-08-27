@@ -176,6 +176,25 @@ try {
     assert(maintenanceAudit.stdout.includes("resume-tailoring-runbook.md"), "maintenance audit did not inspect the resume-tailoring runbook");
   });
 
+  check("public product messaging uses Job Search Harness", () => {
+    const publicFiles = [
+      "README.md",
+      "INSTALL.md",
+      "index.html",
+      "How I Built My Job Search OS.html",
+      "Start Here - README.html",
+      "job-search-os/SKILL.md",
+    ];
+    for (const relative of publicFiles) {
+      const content = fs.readFileSync(path.join(root, relative), "utf8");
+      assert(content.includes("Job Search Harness"), `${relative} is missing the Job Search Harness name`);
+      assert(!content.includes("Job Search OS"), `${relative} still contains the retired public product name`);
+    }
+    const manifest = JSON.parse(fs.readFileSync(path.join(root, ".codex-plugin", "plugin.json"), "utf8"));
+    assert(manifest.name === "job-search-os", "plugin technical identifier changed and would break compatibility");
+    assert(manifest.interface?.displayName === "Job Search Harness", "plugin display name is not Job Search Harness");
+  });
+
   check("README separates installer downloads from readable skill sources", () => {
     const readme = fs.readFileSync(path.join(root, "README.md"), "utf8");
     for (const skillName of skillNames) {

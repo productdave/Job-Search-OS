@@ -1,18 +1,18 @@
 ---
 name: job-search-os
-description: Build and run a personal, self-improving job-search system. Use this skill when someone wants onboarding, wants to set up a job hunt from scratch, find and track roles that fit them, score and filter listings, or learn over time which roles, framings, and keywords actually get callbacks. Trigger on phrases like "start my Job Search OS onboarding", "show me how the system works", "help me set up my job search", "build my job hunt system", "find roles for me", "what should I apply to", "track this job", "track this role", "track my applications", "set up a job search OS", "run my daily job search", or whenever someone shares their background and asks for a system to manage their search. On first use it presents a plain-language guide before interviewing the person and building their living files; on later runs it finds roles, verifies listings, tracks them, and updates what it has learned. Pairs with the resume-tailor and job-search-maintenance skills.
+description: Build and run a personal, self-improving Job Search Harness. Use this skill when someone wants onboarding, wants to set up a job hunt from scratch, find and track roles that fit them, score and filter listings, or learn over time which roles, framings, and keywords actually get callbacks. Trigger on phrases like "start my Job Search Harness onboarding", "build my job search harness", "show me how the harness works", "help me set up my job search", "build my job hunt system", "find roles for me", "what should I apply to", "track this job", "track this role", "track my applications", "run my daily job search", or whenever someone shares their background and asks for a repeatable way to manage their search. On first use it presents a plain-language guide before interviewing the person and building their living files; on later runs it finds roles, verifies listings, tracks them, and updates what it has learned. Pairs with the resume-tailor and job-search-maintenance skills.
 ---
 
-# Job Search OS
+# Job Search Harness
 
-A personal, self-improving job-search system. It does four jobs:
+A personal job-search harness wraps an AI agent in the person's verified facts, preferences, guardrails, workflow, and feedback. It carries repeated work without taking final decisions away from the person. It does four jobs:
 
 1. **Set up** — interview the person once and build a folder of living files that capture who they are, what they're looking for, and how their resume is written.
 2. **Find & track** — search for roles that fit, verify each listing is actually live, score and filter them, and log them to a tracker.
-3. **Learn** — after each application and outcome, update the system so future searches and resumes get sharper. Every application is a labelled data point.
-4. **Run cleanly anywhere** — keep recurring-run instructions in markdown files, not buried inside one vendor's scheduled-task prompt, so Claude, Codex, or another agent can run the same system.
+3. **Learn** — after each application and outcome, update the harness so future searches and resumes get sharper. Every application is a labelled data point.
+4. **Run cleanly anywhere** — keep recurring-run instructions in markdown files, not buried inside one vendor's scheduled-task prompt, so Claude, Codex, or another agent can run the same harness.
 
-The whole idea: the search should get smarter every week, because every rejection, callback, and interview teaches it something.
+The whole idea: help the person stay in the arena. Reduce the searching, checking, rewriting, and record-keeping that turns a job hunt into death by a thousand cuts; create more credible shots on goal; and make the search smarter every week because every rejection, callback, and interview teaches it something.
 
 > **Pairs with the `resume-tailor` skill.** This skill maintains the living files; resume-tailor reads them to build tailored resumes and writes outcomes back. Install both for the full loop, but each works on its own.
 
@@ -20,7 +20,7 @@ The whole idea: the search should get smarter every week, because every rejectio
 
 ## When to do what
 
-- **First run ever** (no living files yet) → **show the welcome guide before asking setup questions.** Present `references/welcome.html` (use `present_files`, or open it for the user) before anything else. The guide is intentionally written for someone unfamiliar with AI: it explains what the system does, what remains human-controlled, the daily and weekly loops, the living files, safety boundaries, and a guided setup message. Give a one-line introduction, let the person read or use the guide, then continue into Phase 1. Do not replace this with a technical file list. Skip it on later runs once the files exist.
+- **First run ever** (no living files yet) → **show the welcome guide before asking setup questions.** Present `references/welcome.html` (use `present_files`, or open it for the user) before anything else. The guide is intentionally written for someone unfamiliar with AI: it explains what the harness does, what remains human-controlled, the daily and weekly loops, the living files, safety boundaries, and a guided setup message. Give a one-line introduction, let the person read or use the guide, then continue into Phase 1. Do not replace this with a technical file list. Skip it on later runs once the files exist.
 - **No living files yet** (first run) → do **Phase 1: Set up**.
 - **Files exist, person wants roles** → do **Phase 2: Find & track**.
 - **Files exist, person reports an outcome or wants a review** → do **Phase 3: Learn**.
@@ -162,10 +162,11 @@ Keep every scheduled-task prompt deliberately small and model-agnostic. The prim
 
 ## Principles
 
+- **The harness is not autopilot.** It carries the process; the person keeps the judgement, relationships, and consequential decisions.
 - **Truthful only.** Reframe and reorder real achievements; never fabricate experience, metrics, titles, or dates.
 - **Living files are the source of truth.** Read them fresh each run; keep them updated.
-- **Prompts stay thin.** Recurring jobs should call the system, not contain the system. Put durable instructions in the matching runbook and editable knobs in `run-config.md`.
+- **Prompts stay thin.** Recurring jobs should call the harness, not contain the harness. Put durable instructions in the matching runbook and editable knobs in `run-config.md`.
 - **One tracker is authoritative.** Optional mirrors are derived outputs, not a second place to edit workflow state.
 - **Verify before you trust.** A listing is not real until the canonical ATS URL resolves to a full JD. "Actually live" beats quantity.
 - **Explain your scoring.** Show your reasoning so the person can correct the system — their feedback outranks your inference.
-- **Every application is a data point.** The point of the loop is that the system learns which domains, titles, and keywords actually work.
+- **Every application is a data point.** The point of the loop is that the harness learns which domains, titles, and keywords actually work.

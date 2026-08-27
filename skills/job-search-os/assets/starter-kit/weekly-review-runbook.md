@@ -1,6 +1,6 @@
 # Weekly review and maintenance runbook
 
-Read `run-config.md` first. This pass improves the system without deleting evidence or duplicating workflow instructions.
+Read `run-config.md` first. This pass improves the harness without deleting evidence or duplicating workflow instructions.
 
 ## 1. Review outcomes
 

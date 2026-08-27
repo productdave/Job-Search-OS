@@ -48,4 +48,4 @@ When a candidate-verified portfolio or GitHub URL is present, show a compact lab
 
 - **docx** — generate the resume DOCX first; generate the cover-letter DOCX only after the resume is finalized. Read its SKILL.md before building.
 - A **writing-voice** skill or sample — tone and phrasing for cover letters and outreach, after the resume is finalized.
-- **job-search-os** — the companion skill that maintains these living files and finds roles to tailor for.
+- **job-search-os** — the technical identifier for the companion Job Search Harness skill, which maintains these living files and finds roles to tailor for.
