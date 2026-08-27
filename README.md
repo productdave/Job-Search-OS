@@ -1,108 +1,188 @@
 <div align="center">
 
-<img src="assets/readme-cover.png" width="100%" alt="Job Search OS helps people find roles, tailor resumes, track applications, and learn from outcomes" />
-
-# Job Search OS
-
-**Find better-fit roles, create stronger applications, and learn what actually earns callbacks.**
-
-A pair of AI-agent skills that turns a scattered job hunt into a repeatable, evidence-based system.
+<img src="assets/readme-cover-v3.png" width="100%" alt="Job Search OS — Job searching should not eat your whole day." />
 
 </div>
 
-## What it does
+# Job Search OS
 
-Job Search OS keeps your experience, search criteria, applications, and outcomes in plain Markdown files, then uses them to improve each new search and resume.
+A privacy-safe starter kit for running a repeatable, evidence-based job search with an AI agent.
 
-It combines two skills:
+The system keeps the candidate profile, search rules, applications, outcomes, and operating instructions in plain Markdown. The files remain the source of truth, so the workflow can run in Claude, Codex, or another file-capable agent without maintaining separate copies of the process in scheduler prompts.
 
-- **`job-search-os`** finds and verifies roles, scores their fit, tracks applications, and learns from outcomes.
-- **`resume-tailor`** turns a job description into a targeted resume using your real achievements, writing preferences, and successful prior applications.
+## Start here
 
-Together, they create a simple feedback loop:
+Open [the guided onboarding](./index.html) to see what the system does, how the parts work together, what the AI handles, and what remains under human control.
 
-**Find → Verify → Apply → Track → Learn**
+Set this up on the computer where the private job-search files should live. Use an AI app that can read and update local files, such as Codex, Claude Cowork or Claude Code, Cursor, or Visual Studio Code with an AI coding agent. A chat-only window without file access cannot run the toolkit.
 
-## Key features
+Use the link to this specific **Job Search OS repository**, not a GitHub profile link. Send the agent:
 
-- **Personalized job search** — captures your target roles, locations, salary range, strengths, and exclusions
-- **Listing verification** — checks company and ATS pages before recommending a role and separates confirmed listings from those that still need verification
-- **Explainable fit scoring** — shows why each role matches, where the gaps are, and what may concern a recruiter
-- **Truthful resume tailoring** — adapts your positioning and language without inventing experience, responsibilities, or metrics
-- **Application tracking** — maintains a portable Markdown tracker and can optionally mirror roles to Notion
-- **Outcome learning** — records the positioning used for each application and what happened afterwards
-- **Reusable resume library** — draws from prior tailored resumes instead of rewriting everything from scratch
-- **Optional recurring searches** — supports scheduled search and learning passes when the agent environment provides scheduling
+```text
+Install this Job Search OS toolkit for me from this repository:
 
-## How to use
+https://github.com/productdave/Job-Search-OS
 
-Once setup is complete, use natural-language prompts:
+Use the installation method supported by this AI app. Then show me the onboarding guide and walk me through setup in plain English.
 
-| What you want to do | What to say |
+Keep my personal job-search information in a separate private folder, not inside the downloaded public repository. Do not apply for jobs or send messages on my behalf.
+```
+
+Codex can install the repository as one bundled plugin. Other file-capable agents can use the same toolkit after opening the downloaded repository folder. See [INSTALL.md](./INSTALL.md) for the download fallback. After the toolkit is installed or open, send:
+
+```text
+Start my Job Search OS onboarding. Show me the guide first, then walk me through setup in plain English.
+```
+
+The onboarding creates a plain-language first brief. The AI then builds a separate private workspace rather than asking the user to understand files or run commands.
+
+Advanced users can also generate a workspace directly:
+
+```bash
+node job-search-os/scripts/setup-workspace.mjs ./my-job-search
+```
+
+The setup command refuses to overwrite a non-empty folder unless `--force` is provided.
+
+## What is included
+
+| Component | Purpose |
 |---|---|
-| Find suitable roles | `Find roles for me` |
-| Review new opportunities | `What should I apply to?` |
-| Track a role you found | `Track this role` plus the URL or job description |
-| Tailor your resume | `Tailor my resume for this` plus the job description |
-| Record a rejection | `I was rejected by [company]` |
-| Record a positive result | `[Company] invited me to interview` |
+| [`.codex-plugin/plugin.json`](./.codex-plugin/plugin.json) | Lets a compatible agent install the repository as one plugin |
+| [`index.html`](./index.html) | Nontechnical tour and guided first message |
+| [`skills/`](./skills/) | Generated plugin copies of the three canonical skill folders |
+| [`job-search-os.skill`](./job-search-os.skill) | Finds, verifies, scores, and tracks roles; learns from outcomes |
+| [`resume-tailor.skill`](./resume-tailor.skill) | Tailors resumes from verified achievements without inventing facts |
+| [`job-search-maintenance.skill`](./job-search-maintenance.skill) | Audits dependencies, archives obsolete artifacts, and compacts oversized context |
+| [`job-search-os/assets/starter-kit/`](./job-search-os/assets/starter-kit/) | Canonical blank workspace templates |
+| [`examples/fictional-workspace/`](./examples/fictional-workspace/) | Clearly labelled fictional data showing completed files |
+| [Architecture walkthrough](./How%20I%20Built%20My%20Job%20Search%20OS.html) | Generic architecture, operating loop, and maintenance model |
 
-Reporting outcomes closes the loop. With consistent feedback, the system can identify which roles, keywords, and positioning repeatedly perform best.
+## One source of truth
 
-## Install
+Keep each kind of information in exactly one place:
 
-### Requirements
-
-- Claude Cowork, a Claude Project, or another compatible skill-enabled agent
-- A connected writable folder so your files persist between conversations
-- Web access for finding and checking job listings
-
-Document export, scheduling, Notion, and spreadsheet support depend on the tools available in your agent environment.
-
-### Install in Claude
-
-1. Download [`job-search-os.skill`](./job-search-os.skill).
-2. Download [`resume-tailor.skill`](./resume-tailor.skill).
-3. Open each file in Claude and choose **Save skill**.
-4. Connect a local folder in Cowork or a Claude Project.
-5. Say: `Help me set up my job search`.
-
-The first run asks one focused set of questions about your background, goals, constraints, and achievements. It then creates the living files for you.
-
-### Files it creates
-
-- `profile.md` — your verified achievement bank
-- `search-config.md` — roles, locations, salary, and other preferences
-- `roles-tracker.md` — opportunities and application status
-- `resume-style-guide.md` — writing, formatting, and output rules
-- `keyword-ledger.md` — positioning used and subsequent outcomes
-- `hypotheses.md` — patterns currently being tested
-- `search-patterns.md` — patterns supported by repeated evidence
-- `learnings-log.md` — an append-only history of meaningful events
-- `/Resume RAG/` — prior tailored resumes and proven language
-
-The files belong to you and can be reviewed or edited at any time. Future runs read their latest contents.
-
-## Tech stack
-
-| Layer | Technology |
+| Information | Canonical file |
 |---|---|
-| Agent workflows | `SKILL.md` instruction packages |
-| Persistent state | Plain Markdown files |
-| Onboarding | Static HTML guide |
-| Resume output | Copy-ready text, with optional DOCX and PDF generation |
-| Optional integrations | Web browsing, Notion, spreadsheets, scheduling |
+| Candidate facts and verified achievements | `profile.md` |
+| Search preferences and fit logic | `search-config.md` |
+| Runtime thresholds, caps, and integrations | `run-config.md` |
+| Durable daily procedure | `daily-runbook.md` |
+| Durable resume-drafting procedure | `resume-tailoring-runbook.md` |
+| Durable resume-QA procedure | `resume-qa-runbook.md` |
+| Durable weekly review and maintenance procedure | `weekly-review-runbook.md` |
+| Current roles and statuses | `roles-tracker.md` or the configured external tracker |
+| Confirmed patterns | `search-patterns.md` |
+| Unproven ideas | `hypotheses.md` |
+| Chronological evidence | `learnings-log.md` |
+| Interview reflections and next experiments | `interview-learnings.md` |
 
-Job Search OS has no separate application server or database. It runs inside the agent environment where the skills are installed.
+Choose one primary tracker. If the primary tracker is Notion or a spreadsheet, `roles-tracker.md` may be kept as a derived portable mirror, but it must not become a second place for independent edits. Human feedback, status changes, and resume state are read from and written to the primary tracker first.
 
-## Status and limitations
+Scheduler prompts should only point at the private workspace and name the relevant runbook. Do not paste the workflow into the scheduler. When the process changes, update the canonical Markdown file once.
 
-Job Search OS is an agent workflow package, not a hosted job board or autonomous background service.
+Example daily trigger:
 
-- A connected folder is required for information to persist between conversations.
-- Some listings cannot be fully verified because of blocked or client-rendered career pages.
-- Scheduled searches require a scheduler supplied by the host environment.
-- DOCX/PDF output and external trackers require compatible tools.
-- Results depend on the accuracy of the achievements, preferences, and outcomes you provide.
-- Its learning loop is evidence-based workflow logic, not machine-learning model training.
-- Always review application documents before submitting them.
+```text
+Run the Job Search OS in /absolute/path/to/my-job-search.
+Read run-config.md, then daily-runbook.md, then follow the living files they name.
+The files are the source of truth. Respect all hard stops.
+```
+
+## The three-pass daily automation
+
+Keep search, resume drafting, and resume QA as separate passes. Each pass finishes by writing its state to the same primary tracker, which becomes the handoff to the next pass.
+
+| Order | Pass | Reads | Stops after |
+|---:|---|---|---|
+| 1 | Daily search | `run-config.md`, then `daily-runbook.md` | Verified roles, tracker updates, and digest |
+| 2 | Resume tailoring | `run-config.md`, then `resume-tailoring-runbook.md` | Eligible drafts saved as `Needs Human Review` |
+| 3 | Resume QA | `run-config.md`, then `resume-qa-runbook.md` | QA verdicts and remaining human actions |
+
+Run the passes in this order. If the scheduler cannot wait for the previous pass to finish, leave enough time between them for the prior pass to complete. None of these passes submits applications, sends outreach, or creates cover letters.
+
+## Core workflow
+
+1. Read recent feedback and outcomes.
+2. Search configured sources.
+3. Resolve and verify the canonical employer or ATS listing.
+4. Deduplicate and score the role against explicit criteria.
+5. Track eligible roles and explain the score.
+6. Tailor a resume only when the configured eligibility rule is met.
+7. Record outcomes and promote patterns only after repeated evidence.
+8. Archive or compact growing files without deleting history.
+
+The starter kit defaults to an 8/10 shortlist and resume-draft threshold. Both use `>= 8`, and the single editable value lives in `run-config.md`.
+
+## Fictional sample
+
+The example workspace uses a fictional candidate named **Jordan Lee** and fictional companies, URLs, metrics, and outcomes. It exists only to demonstrate structure. Never copy its achievements into a real application.
+
+## Privacy model
+
+- The repository contains templates and fictional examples, not a real candidate profile.
+- The onboarding wizard runs entirely in the browser and makes no network requests.
+- Generated workspaces are ignored by the repository's `.gitignore` by default.
+- Public links and metrics are never inferred; the agent must verify them with the candidate.
+- Resume output is always a draft until a human reviews it.
+
+Read [`PRIVACY.md`](./PRIVACY.md) before publishing a fork. Git remote URLs, commit authors, and repository history can still identify the publisher even when file contents are generic.
+
+## Standalone skill installation
+
+The repository-level plugin is the preferred install experience. For hosts that support standalone skills only, download the `.skill` files above and install them separately. On the first run, say:
+
+```text
+Start my Job Search OS onboarding.
+```
+
+Web browsing, scheduling, Notion, spreadsheet, DOCX, and PDF features depend on the tools supplied by the host agent. The Markdown workflow works without those optional integrations.
+
+The canonical skill sources are the three top-level skill folders. Before publishing a plugin update, run `node scripts/sync-onboarding.mjs` and `node scripts/sync-plugin-skills.mjs`. Do not edit the generated `skills/` copies directly.
+
+## Change the process in one place
+
+- To change a personal search, edit the canonical file inside the private workspace. Do not make the same change in this public toolkit or in a scheduler prompt.
+- Put candidate preferences and scoring logic in `search-config.md`.
+- Put thresholds, caps, the primary tracker, and temporary overrides in `run-config.md`.
+- Put durable search, resume, QA, or maintenance steps in the matching runbook.
+- Treat scheduler prompts as timing and routing only. They should not contain a second copy of the workflow.
+- Treat the public GitHub repository as the reusable template. Change it only when the improvement should apply to every future installation.
+
+When changing this public toolkit, edit `index.html` and the three canonical top-level skill folders. Then run the two sync scripts above, rebuild the three `.skill` archives from those canonical folders, and validate source-to-package parity before publishing. The generated `skills/` directory and `.skill` files are outputs, not independent instruction sources.
+
+## Safety boundaries
+
+The templates default to these hard stops:
+
+- never submit an application;
+- never send outreach;
+- never invent experience, metrics, titles, dates, or public links;
+- never overwrite a resume marked as human-authored;
+- never delete historical learning during maintenance;
+- never treat an aggregator link as proof that a listing is live.
+
+## Repository map
+
+```text
+.
+├── .codex-plugin/plugin.json          # one-link plugin manifest
+├── index.html                         # interactive onboarding
+├── INSTALL.md                         # install and first-run contract
+├── skills/                            # generated plugin skill copies
+├── scripts/                           # onboarding and plugin sync tools
+├── README.md                          # repository guide
+├── PRIVACY.md                         # publishing and data-safety checklist
+├── examples/fictional-workspace/      # fictional completed example
+├── job-search-os/
+│   ├── SKILL.md
+│   ├── assets/starter-kit/            # canonical templates
+│   ├── references/
+│   └── scripts/setup-workspace.mjs
+├── resume-tailor/
+└── job-search-maintenance/
+```
+
+## Limitations
+
+This is an agent workflow, not a hosted job board or autonomous application service. Listing verification can fail on blocked or client-rendered pages. A human should review every recommendation and every application document before acting.

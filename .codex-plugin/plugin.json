@@ -1,0 +1,27 @@
+{
+  "name": "job-search-os",
+  "version": "1.0.0",
+  "description": "A guided, self-improving job-search system for finding roles, tailoring truthful resumes, and learning from outcomes.",
+  "author": {
+    "name": "Job Search OS Contributors"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Job Search OS",
+    "shortDescription": "A guided job search that learns what works.",
+    "longDescription": "Job Search OS guides nontechnical users from initial setup through role discovery, listing verification, resume tailoring, outcome tracking, and safe long-term maintenance.",
+    "developerName": "Job Search OS Contributors",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Web",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Start my Job Search OS onboarding.",
+      "Help me set up my job search.",
+      "Show me how the system works."
+    ],
+    "brandColor": "#176B55"
+  }
+}
