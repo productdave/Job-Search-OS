@@ -4,6 +4,8 @@
 
 </div>
 
+<img src="assets/guide/logo-mark.png" width="56" alt="Job Search Harness logo" />
+
 # Job Search Harness
 
 A file-based AI toolkit that finds verified open roles, explains fit, prepares truthful resume drafts, and learns from application outcomes. Your personal data lives in a separate private workspace.
@@ -25,6 +27,8 @@ The public product name is **Job Search Harness**. The repository URL, `job-sear
 Open the **[live guided onboarding](https://productdave.github.io/Job-Search-OS/)** to follow the setup one step at a time. You can move back and forth between the steps as you go.
 
 If you are new, read the [step-by-step first-use guide](./job-search-os/references/getting-started.md). It explains the one-time setup, your first manual search, resume review, and how the harness learns from outcomes.
+
+On a new person's first interactive use, the skill shows the walkthrough and explains it before asking for personal details or starting a search. Returning users and scheduled runs can continue with their existing workspace.
 
 > GitHub's repository view shows HTML source code. Use the live onboarding link above when viewing the guide on a phone or sharing it with someone else.
 

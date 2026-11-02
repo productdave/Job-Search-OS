@@ -23,5 +23,6 @@ if (!fs.existsSync(hostingFile)) {
 fs.mkdirSync(publicDir, { recursive: true });
 fs.copyFileSync(path.join(root, "index.html"), path.join(publicDir, "onboarding.html"));
 fs.copyFileSync(path.join(root, "assets", "readme-cover-v3.png"), path.join(publicDir, "og.png"));
+fs.cpSync(path.join(root, "assets", "guide"), path.join(publicDir, "assets", "guide"), { recursive: true });
 
-console.log("Exported the canonical onboarding and social image to the Sites project.");
+console.log("Exported the canonical onboarding, guide images, and social image to the Sites project.");

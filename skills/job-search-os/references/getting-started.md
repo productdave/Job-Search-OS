@@ -1,6 +1,6 @@
 # Getting started with Job Search Harness
 
-Use this guide when someone is new and asks how to begin. Teach the steps in plain language before collecting their job-search details. If they only want a tour, stop after the walkthrough. If they ask to set up the harness and you can work with local files, continue with the onboarding in `job-search-os/SKILL.md`.
+Use this guide at the beginning of a new person's first interactive session, even if their first request is to find roles or draft a resume. Show the [visual walkthrough](https://productdave.github.io/Job-Search-OS/) when possible and teach the steps below in plain language in the conversation. Do this before collecting job-search details or starting work. If they only want a tour, stop after the walkthrough. If they ask to set up the harness and you can work with local files, continue with the onboarding in `job-search-os/SKILL.md`. Returning users with an established workspace and unattended scheduled runs can go straight to their current files.
 
 Job Search Harness is a repeatable way to find real openings, explain which ones fit, prepare truthful resume drafts, track applications, and learn from outcomes. The person chooses which roles to pursue, reviews every draft, and applies themselves.
 

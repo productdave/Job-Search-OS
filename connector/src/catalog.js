@@ -17,10 +17,12 @@ export const METHODS = Object.freeze([
 
 export function searchMethods(query) {
   const words = query.toLowerCase().trim().split(/\s+/).filter(Boolean);
+  const firstUse = /\b(?:first[ -]time|new to|new user|beginner|getting started|start using|onboard(?:ing)?|never used)\b/i.test(query);
   return METHODS.map(({ id, title, description, path, terms }) => {
     const titleText = `${id} ${title}`.toLowerCase();
     const otherText = `${description} ${terms}`.toLowerCase();
-    const score = words.reduce((total, word) => total + (titleText.includes(word) ? 3 : otherText.includes(word) ? 1 : 0), 0);
+    const score = words.reduce((total, word) => total + (titleText.includes(word) ? 3 : otherText.includes(word) ? 1 : 0), 0)
+      + (firstUse && id === "getting-started" ? 10 : 0);
     return { id, title, description, source: `${REPOSITORY}/blob/main/${path}`, score, primary: path.endsWith("/SKILL.md") };
   }).filter((method) => words.length === 0 || method.score > 0)
     .sort((a, b) => b.score - a.score || Number(b.primary) - Number(a.primary) || a.title.localeCompare(b.title))

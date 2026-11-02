@@ -1,6 +1,6 @@
 ---
 name: job-search-os
-description: Build and run a personal, self-improving Job Search Harness. Use this skill when someone wants a first-time step-by-step walkthrough, onboarding, a job hunt set up from scratch, roles found and tracked, or help learning which roles and resume framings get callbacks. Trigger on phrases like "teach me Job Search Harness", "how do I use the harness", "start my Job Search Harness onboarding", "build my job search harness", "show me how the harness works", "find roles for me", "track this job", or "run my daily job search". On first use it teaches the workflow in plain language; when the person is ready to set up, it builds their living files. On later runs it finds roles, verifies listings, tracks them, and learns from outcomes. Pairs with the resume-tailor and job-search-maintenance skills.
+description: Build and run a personal, self-improving Job Search Harness. Use this skill when someone wants a first-time step-by-step walkthrough, onboarding, a job hunt set up from scratch, roles found and tracked, or help learning which roles and resume framings get callbacks. Trigger on phrases like "teach me Job Search Harness", "how do I use the harness", "start my Job Search Harness onboarding", "build my job search harness", "show me how the harness works", "find roles for me", "track this job", or "run my daily job search". On a new person's first interactive use, show the walkthrough before intake or work, even if they first ask to find roles. Once set up, it finds roles, verifies listings, tracks them, and learns from outcomes. Pairs with the resume-tailor and job-search-maintenance skills.
 ---
 
 # Job Search Harness
@@ -20,9 +20,14 @@ The whole idea: help the person stay in the arena. Reduce the searching, checkin
 
 ## When to do what
 
-- **First-time “how do I use this?” request** → read `references/getting-started.md` and teach its steps in order, in plain language. Explain what the person does, what the agent does, and what a first manual run looks like. If they only asked to learn, finish the walkthrough without collecting personal details or creating files.
-- **Chat-only client without access to a private local folder** → teach from `references/getting-started.md` and explain how to continue in a file-capable agent. Do not collect candidate details or claim to have set up or run the harness.
-- **First setup run** (no living files yet and the person wants to begin) → present `references/welcome.html` (use `present_files`, or open it for the user), then use `references/getting-started.md` to explain the path from setup through the first manual run. Teach before asking setup questions. Then continue into Phase 1 with one focused batch of questions. Do not replace the walkthrough with a technical file list.
+**Show the walkthrough first for every new interactive user.** Before choosing a phase, check whether this person has already completed onboarding or has their own established private workspace with a profile, search preferences, and a primary tracker. If not, treat this as first use regardless of their opening request—even “find roles for me” or “draft my resume.” Do not treat installing the toolkit or connecting the public method library as completed onboarding. Respect an explicit request to skip the tour.
+
+On first use, present `references/welcome.html` when the client can show local HTML; otherwise share the [live walkthrough](https://productdave.github.io/Job-Search-OS/). Read `references/getting-started.md` and explain its steps in order in the conversation, including what the person does, what the agent does, and what the first manual run looks like. Do more than provide a link. Teach before asking for candidate details, creating files, searching, or drafting. If the person only asked to learn, stop after the walkthrough. If they asked to start work and the agent can edit private local files, continue into Phase 1 with one focused batch of questions.
+
+- **Chat-only client without access to a private local folder** → give the walkthrough, then explain how to continue in a file-capable agent. Do not collect candidate details or claim to have set up or run the harness.
+- **Established private workspace** → use the current files and proceed with the requested phase. Do not repeat the tour on routine runs.
+- **Person already knows the walkthrough but has no private workspace yet** → skip the tour, then do Phase 1 before trying to search or draft.
+- **Unattended scheduled run** → use the living files and runbooks directly. Do not interrupt automation with an interactive walkthrough.
 - **Files exist, person wants roles** → do **Phase 2: Find & track**.
 - **Files exist, person reports an outcome or wants a review** → do **Phase 3: Learn**.
 

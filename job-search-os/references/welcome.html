@@ -14,6 +14,8 @@
   <meta name="twitter:title" content="Job Search Harness — Get started">
   <meta name="twitter:description" content="A guided, step-by-step setup for a more focused job search.">
   <meta name="twitter:image" content="https://productdave.github.io/Job-Search-OS/assets/readme-cover-v3.png">
+  <link rel="icon" type="image/png" href="assets/guide/logo-mark.png">
+  <link rel="apple-touch-icon" href="assets/guide/logo-mark.png">
   <title>Job Search Harness — Get started</title>
   <style>
     :root{--ink:#18342e;--muted:#526960;--paper:#f8f5ee;--line:#d5dfd8;--green:#176b55;--green-dark:#0d4c3c;--mint:#e4f2e9;--cream:#fff9ee;--dark:#102f28;--shadow:0 18px 48px rgba(19,54,46,.1)}
@@ -23,7 +25,7 @@
     .wrap{width:min(1050px,calc(100% - 38px));margin-inline:auto}
     .site-header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 0 16px}
     .brand{display:flex;align-items:center;gap:10px;color:var(--ink);font-weight:850;text-decoration:none}
-    .brand-mark{display:grid;place-items:center;width:38px;height:38px;border-radius:12px;color:#fff;background:var(--green);box-shadow:0 8px 22px rgba(23,107,85,.23)}
+    .brand-mark{display:block;flex:none;width:38px;height:38px;object-fit:contain}
     .header-link{font-size:14px;font-weight:750;text-decoration:none}.header-link:hover{text-decoration:underline}
     .progress-shell{padding:13px 17px 16px;border:1px solid var(--line);border-radius:19px;background:rgba(255,255,255,.82);box-shadow:0 6px 22px rgba(19,54,46,.05)}
     .progress-top{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:13px;font-weight:800}
@@ -41,6 +43,8 @@
     h1{max-width:730px;font-size:clamp(43px,6.4vw,72px)}h2{font-size:clamp(36px,5vw,57px)}h3{margin:0 0 7px;font-size:19px;line-height:1.25}
     p{margin:0 0 16px}.lead{max-width:780px;color:var(--muted);font-size:clamp(18px,2.15vw,21px)}.small{color:var(--muted);font-size:14px}
     .hero-grid,.two-col{display:grid;grid-template-columns:1.1fr .9fr;gap:22px;align-items:start}
+    .visual-intro{display:grid;grid-template-columns:minmax(0,1fr) 210px;gap:22px;align-items:center}
+    .visual-intro img{display:block;width:100%;max-height:150px;object-fit:contain}
     .hero-note,.card,.prompt-card,.field-panel,.brief-panel,.notice{padding:22px;border:1px solid var(--line);border-radius:18px;background:#fff}
     .hero-note{background:var(--mint)}.hero-note ol{margin:10px 0 0;padding-left:21px}.hero-note li{margin:8px 0}
     .card-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:13px;margin-top:26px}.card{background:#fbfdfb}
@@ -66,7 +70,7 @@
     .deck-controls{position:fixed;z-index:10;right:50%;bottom:12px;transform:translateX(50%);display:flex;align-items:center;justify-content:space-between;gap:14px;width:min(1050px,calc(100% - 38px));padding:11px 14px;border:1px solid var(--line);border-radius:17px;background:rgba(255,255,255,.96);box-shadow:var(--shadow)}.deck-controls button{min-width:128px}
     .deck-controls button:disabled{opacity:.38;cursor:not-allowed}.deck-hint{color:var(--muted);font-size:13px;text-align:center}
     .footer{padding:7px 0 30px;color:var(--muted);font-size:13px;text-align:center}
-    @media(max-width:760px){.hero-grid,.two-col,.client-grid{grid-template-columns:1fr}.slide{min-height:0;padding:27px 21px}.card-grid{grid-template-columns:1fr 1fr}.deck-hint{display:none}}
+    @media(max-width:760px){.hero-grid,.two-col,.client-grid,.visual-intro{grid-template-columns:1fr}.visual-intro img{width:min(100%,230px);max-height:135px;margin:0 auto}.slide{min-height:0;padding:27px 21px}.card-grid{grid-template-columns:1fr 1fr}.deck-hint{display:none}}
     @media(max-width:540px){.wrap{width:calc(100% - 22px)}.site-header{padding:14px 0}.header-link{font-size:12px}.progress-shell{padding:11px}.slide{border-radius:21px}.card-grid,.field-grid{grid-template-columns:1fr}.field-grid .wide{grid-column:auto}.deck-controls button{min-width:110px}.deck-controls{width:calc(100% - 22px);padding:10px}.progress-top span:last-child{display:none}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.progress-fill{transition:none}}
   </style>
@@ -74,7 +78,7 @@
 <body>
   <header class="wrap">
     <div class="site-header">
-      <a class="brand" href="#step-1"><span class="brand-mark">J</span><span>Job Search Harness</span></a>
+      <a class="brand" href="#step-1"><img class="brand-mark" src="assets/guide/logo-mark.png" alt="" width="38" height="38"><span>Job Search Harness</span></a>
       <a class="header-link" href="https://github.com/productdave/Job-Search-OS">View the toolkit ↗</a>
     </div>
     <nav class="progress-shell" aria-label="Onboarding steps">
@@ -104,7 +108,7 @@
     </section>
 
     <section class="slide" id="step-3" data-title="Set boundaries" aria-labelledby="title-3" hidden>
-      <div class="slide-inner"><span class="eyebrow">Step 3 · Set boundaries</span><h2 id="title-3">Keep your files private and check the work.</h2><p class="lead">Ask the agent to create a separate folder for your resume, profile, tracker, and drafts. Review what it saves before you run a search.</p>
+      <div class="slide-inner"><div class="visual-intro"><div><span class="eyebrow">Step 3 · Set boundaries</span><h2 id="title-3">Keep your files private and check the work.</h2><p class="lead">Ask the agent to create a separate folder for your resume, profile, tracker, and drafts. Review what it saves before you run a search.</p></div><img src="assets/guide/private-workspace.png" alt="The public toolkit and personal files in separate folders" width="960" height="409" loading="lazy" decoding="async"></div>
         <div class="two-col">
           <article class="card"><h3>Things for you to review</h3><ul class="check-list"><li>Your profile and career facts</li><li>Your target roles and search limits</li><li>Each shortlist and resume draft</li><li>Every application before you send it</li></ul></article>
           <article class="card"><h3>Things the agent can prepare</h3><ul class="check-list"><li>A list of verified openings</li><li>Notes on fit and concerns</li><li>Resume drafts for your review</li><li>A record of roles and outcomes</li></ul></article>
@@ -178,14 +182,14 @@ Create my private job-search workspace in a separate folder. Do not put my perso
     </section>
 
     <section class="slide" id="step-10" data-title="Find roles" aria-labelledby="title-10" hidden>
-      <div class="slide-inner"><span class="eyebrow">Step 10 · First manual run</span><h2 id="title-10">Run one search and check the roles.</h2><p class="lead">Once you've reviewed your profile and search settings, copy this message. The agent should give you a short list with a link to each employer's application page.</p>
+      <div class="slide-inner"><div class="visual-intro"><div><span class="eyebrow">Step 10 · First manual run</span><h2 id="title-10">Run one search and check the roles.</h2><p class="lead">Once you've reviewed your profile and search settings, copy this message. The agent should give you a short list with a link to each employer's application page.</p></div><img src="assets/guide/verified-roles.png" alt="A job listing checked on its original employer page" width="960" height="640" loading="lazy" decoding="async"></div>
         <div class="prompt-card"><h3>Find today's roles</h3><pre id="daily-prompt">Run my Job Search Harness for today. Read my current goals and recent feedback in my private workspace first. Find roles that fit, confirm each is open on the employer's application page, and update my primary tracker. Give me a short list with links, reasons for each match, and anything uncertain. Stop there. Don't draft resumes or apply to anything.</pre><button class="action" type="button" data-copy-target="daily-prompt">Copy this message</button><div class="status" role="status"></div></div>
         <div class="notice">Your primary tracker is the one place your agent records roles and outcomes. Check the shortlist and that record before choosing a role to pursue.</div>
       </div>
     </section>
 
     <section class="slide" id="step-11" data-title="Review drafts" aria-labelledby="title-11" hidden>
-      <div class="slide-inner"><span class="eyebrow">Step 11 · Prepare and check</span><h2 id="title-11">Create and check resume drafts.</h2><p class="lead">Tell the agent which roles you want to pursue and ask it to mark them in your tracker. Then send the first message to make drafts. When they're ready, send the second to check the facts and finished pages.</p>
+      <div class="slide-inner"><div class="visual-intro"><div><span class="eyebrow">Step 11 · Prepare and check</span><h2 id="title-11">Create and check resume drafts.</h2><p class="lead">Tell the agent which roles you want to pursue and ask it to mark them in your tracker. Then send the first message to make drafts. When they're ready, send the second to check the facts and finished pages.</p></div><img src="assets/guide/resume-review.png" alt="A resume draft with a review check and pencil" width="960" height="640" loading="lazy" decoding="async"></div>
         <div class="two-col">
           <div class="prompt-card"><h3>1. Prepare a draft</h3><p>Use the verified roles you chose and only facts you've confirmed.</p><pre id="resume-prompt">Run my separate resume-tailoring pass for roles I've marked to pursue that also meet the rules in my primary tracker. Use only facts I've confirmed. Save each draft as Needs Human Review. Don't apply or write cover letters.</pre><button class="action" type="button" data-copy-target="resume-prompt">Copy this message</button><div class="status" role="status"></div></div>
           <div class="prompt-card"><h3>2. Check the draft</h3><p>Have the agent check claims and PDF pages, then review it yourself.</p><pre id="qa-prompt">Run the separate resume-QA pass on the latest drafts. Check every claim against my verified facts and inspect every PDF page for layout. Record the results in my primary tracker. Leave each draft as Needs Human Review.</pre><button class="action" type="button" data-copy-target="qa-prompt">Copy this message</button><div class="status" role="status"></div></div>

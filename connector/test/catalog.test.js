@@ -7,6 +7,9 @@ test("search finds public methods by intent", () => {
   assert.equal(searchMethods("resume")[0].id, "resume-tailoring");
   assert.equal(searchMethods("how do I use Job Search Harness for the first time")[0].id, "getting-started");
   assert.equal(searchMethods("getting started")[0].id, "getting-started");
+  assert.equal(searchMethods("first time, find roles for me")[0].id, "getting-started");
+  assert.equal(searchMethods("new to Job Search Harness, draft my resume")[0].id, "getting-started");
+  assert.equal(searchMethods("find roles for me")[0].id, "job-search");
   assert.equal(searchMethods("").length, METHODS.length);
 });
 
