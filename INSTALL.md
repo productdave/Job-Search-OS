@@ -1,6 +1,6 @@
 # Install Job Search Harness
 
-The Job Search Harness gives a file-capable AI agent a repeatable process for finding open roles, preparing truthful resume drafts, tracking progress, and learning from outcomes. It carries the repeated work; the candidate keeps the judgement and applies personally.
+Job Search Harness 1.2.0 gives a file-capable AI agent a repeatable process for finding verified open roles, preparing truthful resume drafts, tracking progress, and learning from outcomes. Optional passes research hiring contacts and archive job descriptions. The candidate keeps the judgement and applies personally.
 
 The repository contains the whole harness. Codex can install it as a bundled plugin; other AI agents can run the same workflow after opening the downloaded folder.
 
@@ -21,6 +21,8 @@ Examples include:
 
 A normal chat window that cannot access files is not enough.
 
+The planned live Claude connector is not part of 1.2.0. Claude Cowork or Claude Code needs access to the private workspace to run the full harness today; the GitHub link alone does not connect a regular Claude chat to local files.
+
 ## 2. Copy the Job Search Harness repository link
 
 Use the link to this specific repository:
@@ -40,7 +42,7 @@ Install this Job Search Harness toolkit for me from this repository:
 
 https://github.com/productdave/Job-Search-OS
 
-Use the installation method supported by this AI app. Then show me the onboarding guide and walk me through setup in plain English.
+Use the installation method supported by this AI app. Once the toolkit is available, read INSTALL.md, show me the onboarding guide, and walk me through setup in plain English.
 
 Keep my personal job-search information in a separate private folder, not inside the downloaded public repository. Do not apply for jobs or send messages on my behalf.
 ```
@@ -100,6 +102,15 @@ Inside that private workspace:
 - `weekly-review-runbook.md` owns learning, archiving, and context maintenance.
 
 The agent should choose one primary tracker during onboarding. A Markdown tracker may be a portable mirror of an external tracker, but it is not a second source for independent edits.
+
+The starter kit enables read-only hiring-contact research and job-description archiving for new confirmed-live roles. During setup, review these options in `run-config.md` and turn either off if the host agent cannot perform it or the candidate does not want it.
+
+## Updating an existing installation
+
+1. Refresh the **public toolkit**: pull the latest `main` branch if you cloned it, download a fresh ZIP if you use a folder copy, or reinstall the updated plugin or `.skill` files if your AI client installed them. An installed copy does not automatically read new instructions from GitHub.
+2. Keep your **private workspace** in place. Do not rerun setup with `--force` or replace its living files with blank starter templates.
+3. Ask the file-capable agent to compare the new starter runbooks and `run-config.md` with your private versions, carry over only reusable workflow changes you want, and preserve your profile, search preferences, tracker, outcomes, and candidate-authored corrections.
+4. Run one manual search and resume-draft/QA cycle before changing any scheduled tasks. Keep scheduler messages as short pointers to the existing private workspace.
 
 ## Test once before scheduling
 

@@ -6,7 +6,7 @@
 
 # Job Search Harness
 
-A personal AI harness for putting more credible shots on goal—without letting the searching, checking, and resume rewriting eat your whole day.
+A file-based AI toolkit that finds verified open roles, explains fit, prepares truthful resume drafts, and learns from application outcomes. Your personal data lives in a separate private workspace.
 
 Let’s get real. A manual job search can become death by a thousand cuts: search the same sites, open the same tabs, rewrite the same resume, submit, wait, and then start again. The emotional cost grows because every application carries hours of hope before you know whether the role was even live or whether your positioning worked.
 
@@ -17,6 +17,8 @@ The point is not to hand your career to AI. It is to give AI your facts, rules, 
 > **Why “harness”?** An AI model can produce an answer. A harness turns it into a repeatable process: your profile supplies verified facts, your configuration supplies direction, your tracker carries state, and outcomes feed the next iteration. The harness carries the process. You keep the judgement.
 
 The public product name is **Job Search Harness**. The repository URL, `job-search-os` skill identifier, folder name, and existing `.skill` filename remain unchanged so earlier links and installations continue to work.
+
+**Current version: 1.2.0.** The workflow now checks the evidence behind role outcomes, reports how much of each browser search it covered, can research hiring contacts and archive job descriptions, and preserves candidate corrections and human-edited resumes. These are reusable rules; personal search settings and outcomes belong only in the private workspace.
 
 ## Start here
 
@@ -33,7 +35,7 @@ Install this Job Search Harness toolkit for me from this repository:
 
 https://github.com/productdave/Job-Search-OS
 
-Use the installation method supported by this AI app. Then show me the onboarding guide and walk me through setup in plain English.
+Use the installation method supported by this AI app. Once the toolkit is available, read INSTALL.md, show me the onboarding guide, and walk me through setup in plain English.
 
 Keep my personal job-search information in a separate private folder, not inside the downloaded public repository. Do not apply for jobs or send messages on my behalf.
 ```
@@ -53,6 +55,8 @@ node job-search-os/scripts/setup-workspace.mjs ./my-job-search
 ```
 
 The setup command refuses to overwrite a non-empty folder unless `--force` is provided.
+
+**Already using the harness?** See [Updating an existing installation](./INSTALL.md#updating-an-existing-installation). Updating this public toolkit does not overwrite your private workspace or automatically refresh a downloaded or installed copy.
 
 ## What is included
 
@@ -120,9 +124,10 @@ Run the passes in this order. If the scheduler cannot wait for the previous pass
 3. Resolve and verify the canonical employer or ATS listing.
 4. Deduplicate and score the role against explicit criteria.
 5. Track eligible roles and explain the score.
-6. Tailor a resume only when the configured eligibility rule is met.
-7. Record outcomes and promote patterns only after repeated evidence.
-8. Archive or compact growing files without deleting history.
+6. When enabled, research hiring contacts with verified evidence and archive the job description.
+7. Tailor a resume only when the configured eligibility rule is met, preserving candidate corrections and valid human-edited files.
+8. Record outcomes and promote patterns only after reading their evidence and finding repeated independent signals.
+9. Archive or compact growing files without deleting history.
 
 The starter kit defaults to an 8/10 shortlist and resume-draft threshold. Both use `>= 8`, and the single editable value lives in `run-config.md`.
 
@@ -137,6 +142,7 @@ The example workspace uses a fictional candidate named **Jordan Lee** and fictio
 - Generated workspaces are ignored by the repository's `.gitignore` by default.
 - Public links and metrics are never inferred; the agent must verify them with the candidate.
 - Resume output is always a draft until a human reviews it.
+- The public toolkit contains no personal tracker, resume, or candidate profile; the optional hiring-contact pass uses public evidence and sends no outreach.
 
 Read [`PRIVACY.md`](./PRIVACY.md) before publishing a fork. Git remote URLs, commit authors, and repository history can still identify the publisher even when file contents are generic.
 
@@ -149,6 +155,8 @@ Start my Job Search Harness onboarding.
 ```
 
 Web browsing, scheduling, Notion, spreadsheet, DOCX, and PDF features depend on the tools supplied by the host agent. The Markdown workflow works without those optional integrations.
+
+The proposed live Claude connector is **not included in version 1.2.0**. Today, Claude runs the full harness through a file-capable client such as Cowork or Claude Code with access to the private workspace. A normal Claude chat cannot run the local-file workflow from the GitHub link alone.
 
 The canonical skill sources are the three top-level skill folders. Do not edit the generated `skills/` copies or `.skill` packages directly.
 

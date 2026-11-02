@@ -1,15 +1,15 @@
 {
   "name": "job-search-os",
   "version": "1.2.0",
-  "description": "A personal AI job-search harness for finding live roles, preparing truthful resumes, and learning from outcomes.",
+  "description": "Find verified jobs, prepare truthful resume drafts, and learn from application outcomes in a private workspace.",
   "author": {
     "name": "Job Search Harness Contributors"
   },
   "skills": "./skills/",
   "interface": {
     "displayName": "Job Search Harness",
-    "shortDescription": "More credible shots on goal, less repeated work.",
-    "longDescription": "Job Search Harness carries the repeated work of role discovery, listing verification, resume preparation, outcome tracking, and long-term learning while every consequential decision stays with the candidate.",
+    "shortDescription": "Find live roles. Draft truthful resumes. Learn what works.",
+    "longDescription": "Job Search Harness helps a file-capable AI agent find and verify open roles, explain fit, research hiring contacts when enabled, save job descriptions, prepare resume drafts from verified facts, and learn from outcomes. Personal data stays in a separate private workspace. The candidate reviews every consequential decision and applies personally.",
     "developerName": "Job Search Harness Contributors",
     "category": "Productivity",
     "capabilities": [
