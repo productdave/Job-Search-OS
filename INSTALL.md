@@ -21,7 +21,7 @@ Examples include:
 
 A normal chat window that cannot access files is not enough.
 
-The [Claude connector](./connector/README.md) is a separate, read-only method library already running at [`https://job-search-harness-mcp.job-search-harness-mcp.workers.dev/mcp`](https://job-search-harness-mcp.job-search-harness-mcp.workers.dev/mcp). In Claude, choose **Customize → Connectors → Add connector → Add custom connector**, enter the address, and choose **No sign-in**. It does not give regular Claude chat access to local files; Claude Cowork or Claude Code still needs access to the private workspace to run the full harness.
+The [Claude and ChatGPT connector](./connector/README.md) is a separate, read-only method library already running at [`https://job-search-harness-mcp.job-search-harness-mcp.workers.dev/mcp`](https://job-search-harness-mcp.job-search-harness-mcp.workers.dev/mcp). In Claude, add it as a custom connector with **No sign-in**. In ChatGPT, add it under [Plugins](https://chatgpt.com/plugins) as a custom MCP server with **No authentication**. Chat alone cannot access your local files through this connector; a file-capable agent still needs access to your private workspace to run the full harness.
 
 ## 2. Copy the Job Search Harness repository link
 

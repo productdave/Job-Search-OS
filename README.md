@@ -18,7 +18,7 @@ The point is not to hand your career to AI. It is to give AI your facts, rules, 
 
 The public product name is **Job Search Harness**. The repository URL, `job-search-os` skill identifier, folder name, and existing `.skill` filename remain unchanged so earlier links and installations continue to work.
 
-**Current version: 1.3.0.** The toolkit includes the reusable workflow improvements from 1.2.0 and a live, read-only Claude MCP connector. Personal search settings and outcomes belong only in the private workspace.
+**Current version: 1.3.0.** The toolkit includes the reusable workflow improvements from 1.2.0 and a live, read-only MCP connector for Claude and ChatGPT. Personal search settings and outcomes belong only in the private workspace.
 
 ## Start here
 
@@ -65,7 +65,7 @@ The setup command refuses to overwrite a non-empty folder unless `--force` is pr
 | [`.codex-plugin/plugin.json`](./.codex-plugin/plugin.json) | Lets a compatible agent install the repository as one plugin |
 | [Live onboarding](https://productdave.github.io/Job-Search-OS/) ([source](./index.html)) | Nontechnical tour and guided first message |
 | [`skills/`](./skills/) | Generated plugin copies of the three canonical skill folders |
-| [`connector/`](./connector/) | Deployable, read-only MCP server that searches and fetches current public methods for Claude |
+| [`connector/`](./connector/) | Live, read-only MCP server that searches and fetches current public methods for Claude and ChatGPT |
 | [Download `job-search-os.skill`](https://raw.githubusercontent.com/productdave/Job-Search-OS/main/job-search-os.skill) · [read the instructions](./job-search-os/SKILL.md) | Finds, verifies, scores, and tracks roles; learns from outcomes |
 | [Download `resume-tailor.skill`](https://raw.githubusercontent.com/productdave/Job-Search-OS/main/resume-tailor.skill) · [read the instructions](./resume-tailor/SKILL.md) | Tailors resumes from verified achievements without inventing facts |
 | [Download `job-search-maintenance.skill`](https://raw.githubusercontent.com/productdave/Job-Search-OS/main/job-search-maintenance.skill) · [read the instructions](./job-search-maintenance/SKILL.md) | Audits dependencies, archives obsolete artifacts, and compacts oversized context |
@@ -157,7 +157,7 @@ Start my Job Search Harness onboarding.
 
 Web browsing, scheduling, Notion, spreadsheet, DOCX, and PDF features depend on the tools supplied by the host agent. The Markdown workflow works without those optional integrations.
 
-The [Claude connector](./connector/README.md) is live at [`https://job-search-harness-mcp.job-search-harness-mcp.workers.dev/mcp`](https://job-search-harness-mcp.job-search-harness-mcp.workers.dev/mcp). Add that address in Claude under **Customize → Connectors → Add connector → Add custom connector**, with **No sign-in**. It serves current public methods and cannot access your private workspace. Claude Cowork or Claude Code still needs local-folder access to run the full harness; a normal Claude chat can read methods through the connector but cannot run the local-file workflow from the GitHub link alone.
+The [public method connector](./connector/README.md) is live at [`https://job-search-harness-mcp.job-search-harness-mcp.workers.dev/mcp`](https://job-search-harness-mcp.job-search-harness-mcp.workers.dev/mcp). Add it in Claude as a custom connector with **No sign-in**, or in [ChatGPT Plugins](https://chatgpt.com/plugins) as a custom MCP server with **No authentication**. It serves current public methods and cannot access your private workspace. A file-capable agent with local-folder access is still needed to run the full harness.
 
 The canonical skill sources are the three top-level skill folders. Do not edit the generated `skills/` copies or `.skill` packages directly.
 
@@ -197,7 +197,7 @@ The templates default to these hard stops:
 .
 ├── .codex-plugin/plugin.json          # one-link plugin manifest
 ├── .nojekyll                          # serve the static site unchanged on GitHub Pages
-├── connector/                         # deployable read-only Claude MCP server
+├── connector/                         # live read-only Claude and ChatGPT MCP server
 ├── index.html                         # interactive onboarding
 ├── INSTALL.md                         # install and first-run contract
 ├── skills/                            # generated plugin skill copies
