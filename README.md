@@ -22,7 +22,7 @@ The public product name is **Job Search Harness**. The repository URL, `job-sear
 
 ## Start here
 
-Open the **[live guided onboarding](https://productdave.github.io/Job-Search-OS/)** to see the page as a website. It explains what the harness does, how the parts work together, what the AI handles, and what remains under human control.
+Open the **[live guided onboarding](https://productdave.github.io/Job-Search-OS/)** to follow the setup one step at a time. You can move back and forth between the steps as you go.
 
 If you are new, read the [step-by-step first-use guide](./job-search-os/references/getting-started.md). It explains the one-time setup, your first manual search, resume review, and how the harness learns from outcomes.
 
@@ -33,13 +33,13 @@ Set this up on the computer where the private job-search files should live. Use 
 Use the link to this specific **Job Search Harness repository**, not a GitHub profile link. Send the agent:
 
 ```text
-Install this Job Search Harness toolkit for me from this repository:
+Please set up Job Search Harness from this repository:
 
 https://github.com/productdave/Job-Search-OS
 
-Use the installation method supported by this AI app. Once the toolkit is available, read INSTALL.md and job-search-os/references/getting-started.md. Show me the onboarding guide, teach me how to use the harness step by step, and then walk me through setup in plain English.
+Use the installation method this AI app supports. When the toolkit is available, read INSTALL.md and job-search-os/references/getting-started.md. Walk me through the steps in plain English before asking for my personal details.
 
-Keep my personal job-search information in a separate private folder, not inside the downloaded public repository. Do not apply for jobs or send messages on my behalf.
+Create my job-search workspace in a separate private folder, outside the public repository. Let me review my profile and search settings before the first search. Don't apply or send messages for me.
 ```
 
 Codex can install the repository as one bundled plugin. Other file-capable agents can use the same toolkit after opening the downloaded repository folder. See [INSTALL.md](./INSTALL.md) for the download fallback. After the toolkit is installed or open, send:

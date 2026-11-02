@@ -38,13 +38,13 @@ Do not use a GitHub profile link such as `https://github.com/ACCOUNT-NAME`, and 
 Paste this message:
 
 ```text
-Install this Job Search Harness toolkit for me from this repository:
+Please set up Job Search Harness from this repository:
 
 https://github.com/productdave/Job-Search-OS
 
-Use the installation method supported by this AI app. Once the toolkit is available, read INSTALL.md and job-search-os/references/getting-started.md. Show me the onboarding guide, teach me how to use the harness step by step, and then walk me through setup in plain English.
+Use the installation method this AI app supports. When the toolkit is available, read INSTALL.md and job-search-os/references/getting-started.md. Walk me through the steps in plain English before asking for my personal details.
 
-Keep my personal job-search information in a separate private folder, not inside the downloaded public repository. Do not apply for jobs or send messages on my behalf.
+Create my job-search workspace in a separate private folder, outside the public repository. Let me review my profile and search settings before the first search. Don't apply or send messages for me.
 ```
 
 Codex can install the bundled plugin directly. Other clients may download or open the repository instead; direct plugin installation is not guaranteed outside Codex.
