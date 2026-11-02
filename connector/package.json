@@ -1,0 +1,19 @@
+{
+  "name": "job-search-harness-mcp",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/server": "2.4.0",
+    "agents": "0.32.0",
+    "zod": "^4.0.0"
+  },
+  "devDependencies": {
+    "wrangler": "4.156.1"
+  }
+}

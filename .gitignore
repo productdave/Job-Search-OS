@@ -5,3 +5,5 @@ setup-output/
 *.pdf
 *.tmp
 assets/archive/
+connector/node_modules/
+connector/.wrangler/

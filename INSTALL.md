@@ -1,6 +1,6 @@
 # Install Job Search Harness
 
-Job Search Harness 1.2.0 gives a file-capable AI agent a repeatable process for finding verified open roles, preparing truthful resume drafts, tracking progress, and learning from outcomes. Optional passes research hiring contacts and archive job descriptions. The candidate keeps the judgement and applies personally.
+Job Search Harness 1.3.0 gives a file-capable AI agent a repeatable process for finding verified open roles, preparing truthful resume drafts, tracking progress, and learning from outcomes. Optional passes research hiring contacts and archive job descriptions. The candidate keeps the judgement and applies personally.
 
 The repository contains the whole harness. Codex can install it as a bundled plugin; other AI agents can run the same workflow after opening the downloaded folder.
 
@@ -21,7 +21,7 @@ Examples include:
 
 A normal chat window that cannot access files is not enough.
 
-The planned live Claude connector is not part of 1.2.0. Claude Cowork or Claude Code needs access to the private workspace to run the full harness today; the GitHub link alone does not connect a regular Claude chat to local files.
+The [Claude connector](./connector/README.md) is a separate, read-only method library. Its server code is included, but it needs a Cloudflare deployment and a custom connector setup in Claude. It does not give regular Claude chat access to local files; Claude Cowork or Claude Code still needs access to the private workspace to run the full harness.
 
 ## 2. Copy the Job Search Harness repository link
 
