@@ -7,6 +7,8 @@ This Cloudflare Worker serves the current **public** Job Search Harness methods 
 
 The server accepts only the IDs in `src/catalog.js`. It cannot read arbitrary GitHub paths, local files, candidate profiles, trackers, or resumes. Changes to an existing allowlisted method appear on its next retrieval request; adding a new method requires updating the catalog and redeploying the Worker. If GitHub is unavailable, retrieval fails instead of returning stale content.
 
+For a first-time tour, ask either client: “Teach me Job Search Harness step by step. Load the `getting-started` method first.” The guide explains what a chat-only connector can teach and what requires a file-capable agent with a private workspace.
+
 ## Add the live connector to Claude
 
 The public connector is running at:

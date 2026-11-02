@@ -3,6 +3,7 @@ const RAW_BASE = "https://raw.githubusercontent.com/productdave/Job-Search-OS/ma
 
 // Only these public, canonical instructions may be served. Never accept a path or URL from a caller.
 export const METHODS = Object.freeze([
+  { id: "getting-started", title: "Getting started: Job Search Harness step by step", description: "Plain-language first-use guide to setup, a private workspace, one manual search, resume review, and learning from outcomes.", path: "job-search-os/references/getting-started.md", terms: "first time beginner onboarding tutorial how to use start guide setup" },
   { id: "job-search", title: "Find and track jobs", description: "Set up the harness, verify live listings, score roles, track decisions, and learn from outcomes.", path: "job-search-os/SKILL.md", terms: "daily search listing verification tracker onboarding" },
   { id: "resume-tailoring", title: "Tailor a truthful resume", description: "Build role-specific resume drafts using verified candidate facts and prior approved examples.", path: "resume-tailor/SKILL.md", terms: "resume cv achievements keywords docx pdf" },
   { id: "harness-maintenance", title: "Maintain the harness", description: "Audit dependencies, archive old artifacts, and compact growing context without losing evidence.", path: "job-search-maintenance/SKILL.md", terms: "maintenance archive cleanup context" },

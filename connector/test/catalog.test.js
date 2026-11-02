@@ -5,6 +5,8 @@ import { getMethod, METHODS, searchMethods } from "../src/catalog.js";
 test("search finds public methods by intent", () => {
   assert.equal(searchMethods("verify jobs")[0].id, "job-search");
   assert.equal(searchMethods("resume")[0].id, "resume-tailoring");
+  assert.equal(searchMethods("how do I use Job Search Harness for the first time")[0].id, "getting-started");
+  assert.equal(searchMethods("getting started")[0].id, "getting-started");
   assert.equal(searchMethods("").length, METHODS.length);
 });
 

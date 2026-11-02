@@ -24,6 +24,8 @@ The public product name is **Job Search Harness**. The repository URL, `job-sear
 
 Open the **[live guided onboarding](https://productdave.github.io/Job-Search-OS/)** to see the page as a website. It explains what the harness does, how the parts work together, what the AI handles, and what remains under human control.
 
+If you are new, read the [step-by-step first-use guide](./job-search-os/references/getting-started.md). It explains the one-time setup, your first manual search, resume review, and how the harness learns from outcomes.
+
 > GitHub's repository view shows HTML source code. Use the live onboarding link above when viewing the guide on a phone or sharing it with someone else.
 
 Set this up on the computer where the private job-search files should live. Use an AI app that can read and update local files, such as Codex, Claude Cowork or Claude Code, Cursor, or Visual Studio Code with an AI coding agent. A chat-only window without file access cannot run the toolkit.
@@ -35,7 +37,7 @@ Install this Job Search Harness toolkit for me from this repository:
 
 https://github.com/productdave/Job-Search-OS
 
-Use the installation method supported by this AI app. Once the toolkit is available, read INSTALL.md, show me the onboarding guide, and walk me through setup in plain English.
+Use the installation method supported by this AI app. Once the toolkit is available, read INSTALL.md and job-search-os/references/getting-started.md. Show me the onboarding guide, teach me how to use the harness step by step, and then walk me through setup in plain English.
 
 Keep my personal job-search information in a separate private folder, not inside the downloaded public repository. Do not apply for jobs or send messages on my behalf.
 ```
@@ -43,7 +45,7 @@ Keep my personal job-search information in a separate private folder, not inside
 Codex can install the repository as one bundled plugin. Other file-capable agents can use the same toolkit after opening the downloaded repository folder. See [INSTALL.md](./INSTALL.md) for the download fallback. After the toolkit is installed or open, send:
 
 ```text
-Start my Job Search Harness onboarding. Show me the guide first, then walk me through setup in plain English.
+Start my Job Search Harness onboarding. Show me the guide, teach me the steps from setup through the first manual run, then walk me through setup in plain English.
 ```
 
 The onboarding creates a plain-language first brief. The AI then builds a separate private workspace rather than asking the user to understand files or run commands.
@@ -158,6 +160,8 @@ Start my Job Search Harness onboarding.
 Web browsing, scheduling, Notion, spreadsheet, DOCX, and PDF features depend on the tools supplied by the host agent. The Markdown workflow works without those optional integrations.
 
 The [public method connector](./connector/README.md) is live at [`https://job-search-harness-mcp.job-search-harness-mcp.workers.dev/mcp`](https://job-search-harness-mcp.job-search-harness-mcp.workers.dev/mcp). Add it in Claude as a custom connector with **No sign-in**, or in [ChatGPT Plugins](https://chatgpt.com/plugins) as a custom MCP server with **No authentication**. It serves current public methods and cannot access your private workspace. A file-capable agent with local-folder access is still needed to run the full harness.
+
+In a chat with the connector, ask it to load the `getting-started` method and teach you the workflow before you share personal details with a file-capable agent.
 
 The canonical skill sources are the three top-level skill folders. Do not edit the generated `skills/` copies or `.skill` packages directly.
 

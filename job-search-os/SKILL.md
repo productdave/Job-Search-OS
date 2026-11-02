@@ -1,6 +1,6 @@
 ---
 name: job-search-os
-description: Build and run a personal, self-improving Job Search Harness. Use this skill when someone wants onboarding, wants to set up a job hunt from scratch, find and track roles that fit them, score and filter listings, or learn over time which roles, framings, and keywords actually get callbacks. Trigger on phrases like "start my Job Search Harness onboarding", "build my job search harness", "show me how the harness works", "help me set up my job search", "build my job hunt system", "find roles for me", "what should I apply to", "track this job", "track this role", "track my applications", "run my daily job search", or whenever someone shares their background and asks for a repeatable way to manage their search. On first use it presents a plain-language guide before interviewing the person and building their living files; on later runs it finds roles, verifies listings, tracks them, and updates what it has learned. Pairs with the resume-tailor and job-search-maintenance skills.
+description: Build and run a personal, self-improving Job Search Harness. Use this skill when someone wants a first-time step-by-step walkthrough, onboarding, a job hunt set up from scratch, roles found and tracked, or help learning which roles and resume framings get callbacks. Trigger on phrases like "teach me Job Search Harness", "how do I use the harness", "start my Job Search Harness onboarding", "build my job search harness", "show me how the harness works", "find roles for me", "track this job", or "run my daily job search". On first use it teaches the workflow in plain language; when the person is ready to set up, it builds their living files. On later runs it finds roles, verifies listings, tracks them, and learns from outcomes. Pairs with the resume-tailor and job-search-maintenance skills.
 ---
 
 # Job Search Harness
@@ -20,8 +20,9 @@ The whole idea: help the person stay in the arena. Reduce the searching, checkin
 
 ## When to do what
 
-- **First run ever** (no living files yet) → **show the welcome guide before asking setup questions.** Present `references/welcome.html` (use `present_files`, or open it for the user) before anything else. The guide is intentionally written for someone unfamiliar with AI: it explains what the harness does, what remains human-controlled, the daily and weekly loops, the living files, safety boundaries, and a guided setup message. Give a one-line introduction, let the person read or use the guide, then continue into Phase 1. Do not replace this with a technical file list. Skip it on later runs once the files exist.
-- **No living files yet** (first run) → do **Phase 1: Set up**.
+- **First-time “how do I use this?” request** → read `references/getting-started.md` and teach its steps in order, in plain language. Explain what the person does, what the agent does, and what a first manual run looks like. If they only asked to learn, finish the walkthrough without collecting personal details or creating files.
+- **Chat-only client without access to a private local folder** → teach from `references/getting-started.md` and explain how to continue in a file-capable agent. Do not collect candidate details or claim to have set up or run the harness.
+- **First setup run** (no living files yet and the person wants to begin) → present `references/welcome.html` (use `present_files`, or open it for the user), then use `references/getting-started.md` to explain the path from setup through the first manual run. Teach before asking setup questions. Then continue into Phase 1 with one focused batch of questions. Do not replace the walkthrough with a technical file list.
 - **Files exist, person wants roles** → do **Phase 2: Find & track**.
 - **Files exist, person reports an outcome or wants a review** → do **Phase 3: Learn**.
 

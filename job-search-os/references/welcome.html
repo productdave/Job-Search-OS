@@ -244,9 +244,9 @@ Create my private job-search workspace in a separate folder. Do not put my perso
 
             <article class="install-step">
               <span class="step-number">4</span>
-              <div><h3>Start onboarding</h3><p>Once the agent confirms the toolkit is installed or open, paste this short message:</p>
+              <div><h3>Start onboarding</h3><p>Once the agent confirms the toolkit is installed or open, paste this short message. It should teach you the steps before asking about your search. You can also <a href="https://github.com/productdave/Job-Search-OS/blob/main/job-search-os/references/getting-started.md">read the first-use guide</a>.</p>
                 <div class="paste-box">
-                  <pre id="start-message">Start my Job Search Harness onboarding. Show me the guide first, then walk me through setup in plain English.</pre>
+                  <pre id="start-message">Start my Job Search Harness onboarding. Show me the guide, teach me the steps from setup through the first manual run, then walk me through setup in plain English.</pre>
                   <button type="button" id="copy-start">Copy the onboarding message</button>
                   <div class="copy-status" id="start-status" aria-live="polite"></div>
                 </div>
@@ -342,14 +342,14 @@ Create my private job-search workspace in a separate folder. Do not put my perso
           "",
           repository(),
           "",
-          "Use the installation method supported by this AI app. Once the toolkit is available, read INSTALL.md, show me the onboarding guide, and walk me through setup in plain English.",
+          "Use the installation method supported by this AI app. Once the toolkit is available, read INSTALL.md and job-search-os/references/getting-started.md. Show me the onboarding guide, teach me how to use the harness step by step, and then walk me through setup in plain English.",
           "",
           "Keep my personal job-search information in a separate private folder, not inside the downloaded public repository. Do not apply for jobs or send messages on my behalf."
         ].join("\n");
       }
       function briefText(){
         return [
-          "Start my Job Search Harness onboarding.",
+          "Start my Job Search Harness onboarding. Teach me the steps before building files.",
           "",
           "My goal is to spend less time scrolling for roles, move faster on strong applications, and keep what I learn from applications and interviews.",
           "",

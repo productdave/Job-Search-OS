@@ -4,7 +4,9 @@ import { z } from "zod";
 import { getMethod, searchMethods } from "./catalog.js";
 
 function createServer() {
-  const server = new McpServer({ name: "job-search-harness", version: "1.0.0" });
+  const server = new McpServer({ name: "job-search-harness", version: "1.0.0" }, {
+    instructions: "This server serves public Job Search Harness methods only. For first-time or how-to-use requests, load get_method with id 'getting-started' and teach its steps. For other requests, use search_methods then get_method. In a chat-only client, do not collect private candidate details or claim to run the harness; a file-capable agent with private-folder access is needed for setup and ongoing work."
+  });
 
   server.registerTool("search_methods", {
     description: "Search public Job Search Harness methods and reference instructions. Returns IDs to use with get_method. Personal candidate files are not available here.",

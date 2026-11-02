@@ -42,7 +42,7 @@ Install this Job Search Harness toolkit for me from this repository:
 
 https://github.com/productdave/Job-Search-OS
 
-Use the installation method supported by this AI app. Once the toolkit is available, read INSTALL.md, show me the onboarding guide, and walk me through setup in plain English.
+Use the installation method supported by this AI app. Once the toolkit is available, read INSTALL.md and job-search-os/references/getting-started.md. Show me the onboarding guide, teach me how to use the harness step by step, and then walk me through setup in plain English.
 
 Keep my personal job-search information in a separate private folder, not inside the downloaded public repository. Do not apply for jobs or send messages on my behalf.
 ```
@@ -72,14 +72,14 @@ Create my private job-search workspace in a separate folder. Do not put my perso
 After the agent confirms that the toolkit is installed or open, send:
 
 ```text
-Start my Job Search Harness onboarding. Show me the guide first, then walk me through setup in plain English.
+Start my Job Search Harness onboarding. Show me the guide, teach me the steps from setup through the first manual run, then walk me through setup in plain English.
 ```
 
 ## What a successful first run looks like
 
 The first run should:
 
-- show the onboarding guide before asking setup questions;
+- show the onboarding guide and teach the steps from setup through a first manual run before asking setup questions;
 - use plain language and explain unfamiliar terms;
 - ask one focused group of questions rather than a long technical interview;
 - create a private workspace from the bundled starter kit;
