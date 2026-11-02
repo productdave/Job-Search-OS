@@ -21,7 +21,7 @@ Examples include:
 
 A normal chat window that cannot access files is not enough.
 
-The [Claude connector](./connector/README.md) is a separate, read-only method library. Its server code is included, but it needs a Cloudflare deployment and a custom connector setup in Claude. It does not give regular Claude chat access to local files; Claude Cowork or Claude Code still needs access to the private workspace to run the full harness.
+The [Claude connector](./connector/README.md) is a separate, read-only method library already running at [`https://job-search-harness-mcp.job-search-harness-mcp.workers.dev/mcp`](https://job-search-harness-mcp.job-search-harness-mcp.workers.dev/mcp). In Claude, choose **Customize → Connectors → Add connector → Add custom connector**, enter the address, and choose **No sign-in**. It does not give regular Claude chat access to local files; Claude Cowork or Claude Code still needs access to the private workspace to run the full harness.
 
 ## 2. Copy the Job Search Harness repository link
 

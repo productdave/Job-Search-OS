@@ -7,7 +7,21 @@ This Cloudflare Worker serves the current **public** Job Search Harness methods 
 
 The server accepts only the IDs in `src/catalog.js`. It cannot read arbitrary GitHub paths, local files, candidate profiles, trackers, or resumes. Changes to an existing allowlisted method appear on its next retrieval request; adding a new method requires updating the catalog and redeploying the Worker. If GitHub is unavailable, retrieval fails instead of returning stale content.
 
-## Build and deploy
+## Add the live connector to Claude
+
+The public connector is running at:
+
+```text
+https://job-search-harness-mcp.job-search-harness-mcp.workers.dev/mcp
+```
+
+In Claude, open **Customize → Connectors → Add connector → Add custom connector**. Name it **Job Search Harness**, paste the URL above, and choose **No sign-in**. Connect it, then ask Claude:
+
+> Use the Job Search Harness connector to search for the method on verifying live job listings. Load the most relevant method and summarize its checks.
+
+Claude may ask you to approve each of its two read-only tools, **Search methods** and **Get method**. The connector is a method library; a normal Claude chat can read public methods, while running the full job search requires Claude Cowork, Claude Code, or another file-capable agent with access to your separate private workspace.
+
+## Run your own deployment
 
 From this directory:
 
@@ -19,8 +33,6 @@ npx wrangler login
 npm run deploy
 ```
 
-The deployment prints a URL such as `https://job-search-harness-mcp.<your-subdomain>.workers.dev`. Use that URL with `/mcp` appended. The Worker is public and has no sign-in because its methods are already public on GitHub.
-
-In Claude, add a **custom connector** using the `/mcp` URL and choose **No sign in**. Enable it in a chat and ask: “Search the Job Search Harness methods for verifying a live role, then load the relevant method.” The connector is a method library; Claude still needs a file-capable client with access to your separate private workspace to run the full job search.
+The deployment prints a Worker URL. Append `/mcp` to that URL when adding your own custom connector. The Worker needs no sign-in because it serves only methods already public on GitHub.
 
 Do not add personal files, private tokens, or candidate-specific instructions to this connector or its allowlist.

@@ -18,7 +18,7 @@ The point is not to hand your career to AI. It is to give AI your facts, rules, 
 
 The public product name is **Job Search Harness**. The repository URL, `job-search-os` skill identifier, folder name, and existing `.skill` filename remain unchanged so earlier links and installations continue to work.
 
-**Current version: 1.3.0.** The toolkit includes the reusable workflow improvements from 1.2.0 and source code for a read-only Claude MCP connector. Personal search settings and outcomes belong only in the private workspace.
+**Current version: 1.3.0.** The toolkit includes the reusable workflow improvements from 1.2.0 and a live, read-only Claude MCP connector. Personal search settings and outcomes belong only in the private workspace.
 
 ## Start here
 
@@ -157,7 +157,7 @@ Start my Job Search Harness onboarding.
 
 Web browsing, scheduling, Notion, spreadsheet, DOCX, and PDF features depend on the tools supplied by the host agent. The Markdown workflow works without those optional integrations.
 
-The [Claude connector](./connector/README.md) can serve current public methods after you deploy it to a Cloudflare account and add its `/mcp` URL as a custom connector. It does not access your private workspace. Claude Cowork or Claude Code still needs local-folder access to run the full harness; a normal Claude chat can read methods through the connector but cannot run the local-file workflow from the GitHub link alone.
+The [Claude connector](./connector/README.md) is live at [`https://job-search-harness-mcp.job-search-harness-mcp.workers.dev/mcp`](https://job-search-harness-mcp.job-search-harness-mcp.workers.dev/mcp). Add that address in Claude under **Customize → Connectors → Add connector → Add custom connector**, with **No sign-in**. It serves current public methods and cannot access your private workspace. Claude Cowork or Claude Code still needs local-folder access to run the full harness; a normal Claude chat can read methods through the connector but cannot run the local-file workflow from the GitHub link alone.
 
 The canonical skill sources are the three top-level skill folders. Do not edit the generated `skills/` copies or `.skill` packages directly.
 
