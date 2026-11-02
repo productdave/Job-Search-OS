@@ -32,10 +32,11 @@ For each eligible role:
 1. Read the full listing and extract requirements, keywords, seniority signals, and honest gaps.
 2. Use only verified facts and metrics from `profile.md`.
 3. Reuse proven truthful language from the closest prior resumes when available.
-4. Follow `resume-style-guide.md` exactly for structure, formatting, file naming, and output location.
-5. Generate matching DOCX and PDF files outside the source-of-truth workspace.
-6. Render every PDF page and perform the pre-delivery checks in `resume-style-guide.md`.
-7. Mark the result `Needs Human Review`. A generated draft is never approved for submission.
+4. Reconcile every reused claim with the latest candidate-authored corrections in the living profile. Those corrections outrank older resume examples and generated drafts.
+5. Check for an existing role-matched resume in the configured output location. Verify its content and factual accuracy before attaching it; preserve human edits. A different role at the same company is not a match.
+6. If no valid matching file exists, follow `resume-style-guide.md` exactly and generate matching DOCX and PDF files outside the source-of-truth workspace.
+7. Render every new PDF page and perform the pre-delivery checks in `resume-style-guide.md`.
+8. Mark the result `Needs Human Review`. An attached or generated draft is never approved for submission.
 
 ## Tracker and learning handoff
 
@@ -46,6 +47,7 @@ After each draft, update the same primary tracker record with:
 - draft status `Needs Human Review`;
 - drafted date and run ID;
 - generator or agent attribution;
+- whether the file was generated or an existing candidate-authored file was attached;
 - honest gaps, skipped checks, or blocked dependencies.
 
 Add a `keyword-ledger.md` row containing the role, resume version, positioning, keywords, and highlights used. Leave the outcome `Pending` until the candidate actually submits the resume and reports an outcome.

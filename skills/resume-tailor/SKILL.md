@@ -56,6 +56,8 @@ The JD may arrive as pasted text, a URL, or a file.
 
 Read `resume-style-guide.md` and `profile.md` in full. If only `resume-format.md` exists, read it and follow its redirect to the current guide. Skim `search-config.md`, `search-patterns.md`, and `hypotheses.md` for the positioning lens if they exist. Then open the `/Resume RAG/` index and pick the 1–2 prior resumes closest to this role (by domain/title); read those. If no prior resumes exist yet, work from `profile.md` alone.
 
+If the workspace has a context index, resolve the current profile and prior-resume library paths from it rather than creating duplicate files. The latest candidate-authored corrections in the living profile take precedence over older bullets, resume examples, and generated drafts. Keep any detail the candidate reserved for an interview out of resume bullets.
+
 ### Step 3 — Analyse the JD
 
 Extract and note (briefly, for your own use):
@@ -72,7 +74,7 @@ Follow `resume-style-guide.md` exactly. In brief (defer to that file if it disag
 
 - **Executive Summary** (2–3 sentences): mirror the JD's domain + competency keywords. No company names, no metrics. Its job is to answer the JD and pass ATS.
 - **Selected Highlights** (4–6): `**Bold Label:** what was done. Metric outcome.` Pick the highlights that map most directly to the JD's stated requirements; order strongest-match first.
-- **Experience bullets:** pull the closest-matching phrasing from the RAG library. Action verb first, metric as a participial phrase at the end. No "responsible for", no "→", no em-dashes, no semicolons splitting two ideas.
+- **Experience bullets:** pull the closest-matching phrasing from the RAG library, then reconcile claims and framing with the current living profile. Action verb first, metric as a participial phrase at the end. No "responsible for", no "→", no em-dashes, no semicolons splitting two ideas.
 - **Portfolio link (header):** when the profile or style guide provides a candidate-verified portfolio or GitHub URL, keep it as a compact live hyperlink on the contact line immediately after LinkedIn. Never infer a handle or URL. Keep it at the contact-line size and visual weight. Do not add a separate Projects, Portfolio, or builder-summary section unless the candidate explicitly asks for one.
 
 Then produce the resume DOCX. Use the **docx** skill for generation if it's available, matching the format spec in `resume-style-guide.md` (font, margins, sizes). Read the docx SKILL.md before building the file. If no docx skill is available, output clean, copy-ready text.

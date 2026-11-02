@@ -84,6 +84,8 @@ If `daily-runbook.md` or `run-config.md` is missing but the person is running da
 
 If the tracker carries any feedback the person left on roles (why they passed or progressed), read it first and let it tighten scoring. Treat person-authored feedback as stronger than your own inference. When 2+ pieces of feedback share a pattern, update `search-config.md` / `search-patterns.md` and log the change.
 
+Before counting a terminal status as evidence, read the feedback note and confirmed signal behind it. Keep candidate withdrawals, employer pauses, screening rejections, and interview losses distinct.
+
 For Notion/Sheets trackers, look for fields such as `Listing Feedback`, `Why I Applied`, `Confirmed Signal`, `Notes`, `Status`, and `Pass Reason`. Do not add near-duplicate cards; update the existing card if the canonical ATS link, company+title, or requisition ID matches.
 
 ### Step 2.5 — Resolve the primary tracker
@@ -120,6 +122,8 @@ For active cards, re-verify the link on each run and stamp "Last verified: [date
 ### Step 5 — Score, explain, and log
 
 Score each confirmed role against the profile and config. **Explain your reasoning** when you score or position a role, so the person can correct the system. Add live roles to the primary tracker with a fit score, why-it-fits, concerns, canonical ATS link, verification signal, verification run ID, date found, and model/agent attribution. Refresh an enabled mirror only after the primary write succeeds. Report at least a handful of outcomes per run; if there aren't enough confirmed-live new roles, say so honestly rather than inflating the list.
+
+If `run-config.md` enables hiring-contact research, verify current public evidence before naming a recruiter or manager and label inferred relationships. If job-description archiving is enabled, save the source text and label partial captures honestly. Neither pass sends outreach.
 
 When the person decides to apply, hand off to the **resume-tailor** skill (if installed) to build the tailored resume, and add a row to `keyword-ledger.md`.
 

@@ -41,6 +41,7 @@ Use only verified values from `profile.md`. Keep LinkedIn and an optional portfo
 - Mirror relevant job-description language without keyword stuffing.
 - Reframe and reorder real achievements; never invent them.
 - Use active voice and one main idea per bullet.
+- For senior product roles, prefer short ownership-and-outcome bullets: name the product scope, lead with a specific verb or result, and use one verified headline metric when available. Cut activity lists before cutting evidence. Put the strongest role-relevant proof first and vary opening verbs.
 - Prefer concrete outcomes and numerals for verified metrics.
 - Avoid `responsible for`, vague superlatives, unsupported claims, em dashes, and decorative arrows.
 - Keep the summary to 2–3 sentences. Do not put target-company names or unverified metrics in it.

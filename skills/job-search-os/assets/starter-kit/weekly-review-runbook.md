@@ -8,13 +8,16 @@ Read `run-config.md` first. This pass improves the harness without deleting evid
 - Keep resume-screening signals in the keyword ledger and interview-stage reflections in `interview-learnings.md`; link both to the chronological log.
 - For each interview stage, capture what landed, where the candidate struggled, any direct feedback, and one next experiment.
 - Preserve human-authored explanations and counter-evidence.
+- Read the feedback note and confirmed signal behind each terminal status before counting it. A status is a pointer to evidence, not proof of an interview loss or rejection cause.
 
 ## 2. Update hypotheses
 
 - Add new evidence to stable hypothesis IDs.
 - Keep statuses explicit: `Forming`, `Confirmed`, `Disproved`, `Merged`, or `Superseded`.
 - Promote only when the evidence rule in `run-config.md` is satisfied.
+- Count distinct roles as independent observations; multiple notes about one role are one data point. Keep credible counter-evidence visible and mark mixed findings as unresolved.
 - When a confirmed pattern changes candidate preferences, update `search-config.md` and log the change in `search-patterns.md`.
+- Propose changes to hard constraints such as salary floor, location, title band, or excluded domains for the candidate to decide; do not silently change them from inferred evidence.
 
 ## 3. Refresh active learnings
 

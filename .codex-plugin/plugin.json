@@ -1,6 +1,6 @@
 {
   "name": "job-search-os",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "A personal AI job-search harness for finding live roles, preparing truthful resumes, and learning from outcomes.",
   "author": {
     "name": "Job Search Harness Contributors"

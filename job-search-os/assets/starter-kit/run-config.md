@@ -35,6 +35,8 @@ These are the canonical threshold values. Other files refer to them without copy
 | Learning and listing-feedback pass | Yes |
 | Job search | Yes |
 | Live-listing verification | Yes |
+| Read-only hiring-contact research | Yes, for new confirmed-live roles |
+| Job-description archive | Yes, for new confirmed-live roles |
 | Tracker updates | Yes |
 | Daily digest | Yes |
 | Resume tailoring | Separate run |

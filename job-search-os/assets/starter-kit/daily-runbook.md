@@ -19,6 +19,7 @@ Read this file after `run-config.md`. When they disagree, `run-config.md` owns c
 ### 1. Learning and feedback pass
 
 - Read human-authored listing feedback, pass reasons, status changes, and notes before searching.
+- Before treating a status as evidence for a hypothesis, read its feedback note, confirmed signal, and relevant page details. A status alone does not establish why a role ended; distinguish employer pauses, candidate withdrawals, screening rejections, and interview outcomes.
 - Record meaningful new outcomes in `learnings-log.md`; use `keyword-ledger.md` for screening evidence and `interview-learnings.md` for interview-stage evidence.
 - Human feedback outranks the agent's earlier inference.
 - Do not confirm a pattern from a single outcome.
@@ -28,6 +29,7 @@ Read this file after `run-config.md`. When they disagree, `run-config.md` owns c
 - Use target titles, locations, domains, inclusions, and exclusions from `search-config.md`.
 - Search trusted sources and target-company career pages from `boards-and-companies.md`.
 - Treat aggregator results as discovery leads only.
+- When a configured source requires a browser, open the actual results and job details, verify the active search filters, and record the searches, pages, and listings reviewed. If access is blocked or a run budget cuts the sweep short, report partial coverage; a text-search fallback is a separate discovery source.
 
 ### 3. Verify every listing
 
@@ -46,12 +48,14 @@ Read this file after `run-config.md`. When they disagree, `run-config.md` owns c
 
 ### 5. Update trackers
 
+- When hiring-contact research is enabled, look for a named recruiter or hiring manager on the live listing and current public profiles. Record each person's source and confidence; distinguish a named owner from a likely or possible contact. If no one can be verified, say so. Research is read-only: do not contact anyone.
 - Update the configured primary tracker.
 - If an external tracker is primary, refresh `roles-tracker.md` only as a derived portable mirror when `run-config.md` enables it.
 - Never accept independent workflow state from both the primary tracker and its mirror. Human feedback and status changes belong in the primary tracker.
 - Preserve human-authored notes.
 - Attribute automated changes.
 - Stamp confirmed listings with the verification date and run ID so the resume pass can prove they were live in this run.
+- When job-description archiving is enabled, save the available listing text for each new role with its canonical URL, capture date, and capture type. Label a summary as partial rather than a full description. Reuse an unchanged archive instead of creating a duplicate.
 
 ### 6. Produce the digest
 
@@ -62,7 +66,9 @@ Report:
 - roles needing verification;
 - expired or duplicate findings;
 - tracker and learning files changed;
+- job descriptions archived and hiring contacts found or still unverified, when those passes are enabled;
 - constraints, rate limits, or blocked pages.
+- browser-source coverage as completed, partial, blocked, or disabled, with the filters checked and where coverage stopped when applicable.
 
 Do not inflate counts with stale, duplicate, or unverified roles.
 
