@@ -22,6 +22,7 @@ This file contains operational knobs. Candidate preferences belong in `search-co
 
 | Decision | Rule |
 |---|---|
+| Full role card | Score `>= 6/10` for a new role |
 | Add to shortlist | Score `>= 8/10` and listing confirmed live |
 | Create resume draft | Score `>= 8/10`, confirmed live this run, eligible status, and no valid existing draft |
 | Promote a hypothesis | At least 3 consistent evidence points and no unresolved counter-evidence |
