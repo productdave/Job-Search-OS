@@ -50,6 +50,13 @@ Read this file after `run-config.md`. When they disagree, `run-config.md` owns c
 
 - When hiring-contact research is enabled, look for a named recruiter or hiring manager on the live listing and current public profiles. Record each person's source and confidence; distinguish a named owner from a likely or possible contact. If no one can be verified, say so. Research is read-only: do not contact anyone.
 - Update the configured primary tracker.
+  - Required card standard for every new role that meets the full role card threshold in `run-config.md`:
+    - Why it fits: at least 3 named proof points from `profile.md`, each mapped to a specific job-description requirement. Use only metrics the candidate has cleared; do not paraphrase the charter.
+    - Concerns: labelled blocks, in order: EDUCATION TIER (verbatim requirement), COMPANY CLUSTER, SIBLING REQ, POSITIONING TRIGGER (a listing phrase that needs a specific story), SCREEN-OUT CRITERIA, HONEST GAPS. Write `none` where a block does not apply.
+    - Salary and location: the published band or location plus a one-line note against the minimum compensation and locations in `search-config.md`, and remote or relocation eligibility.
+    - Role page body, four sections in order: `## Verification` (canonical URL, date read, how found), `## Scoring` (table `Factor | Weight | Score | Basis`, then the weighted score), `## Hiring Contacts` (when enabled; a none-found result lists the sources searched), and `## Suggested application angle` (what to lead with, which parts of the listing each need a story, a prepared answer to any screen-out criterion, and the route in: referral, recruiter, or direct apply, and why).
+    - Job description child page or archive entry, when archiving is enabled.
+    - Self-check before closing each role: all four body sections exist, at least 3 proof points are named, all six concern blocks are present, and the description archive exists. Record any miss in the role's system notes and fix it in the same run.
 - If an external tracker is primary, refresh `roles-tracker.md` only as a derived portable mirror when `run-config.md` enables it.
 - Never accept independent workflow state from both the primary tracker and its mirror. Human feedback and status changes belong in the primary tracker.
 - Preserve human-authored notes.
@@ -61,7 +68,7 @@ Read this file after `run-config.md`. When they disagree, `run-config.md` owns c
 
 Report:
 
-- confirmed-live roles that meet the current threshold;
+- confirmed-live roles that meet the current threshold, each with one `Angle:` line (the full angle also lives on the role page under `## Suggested application angle`);
 - confirmed-live roles below the threshold, briefly;
 - roles needing verification;
 - expired or duplicate findings;
